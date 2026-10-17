@@ -3,11 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- ===================================================================== -->
-  <!-- REPLACE: Page Title & SEO Meta Description                            -->
-  <!-- ===================================================================== -->
-  <title>Emmanuel Corpus — Software Engineer | Backend Software Engineer </title>
-  <meta name="description" content="Portfolio of Emmanuel Corpus, Software Engineer specializing in high-performance backend systems, .NET architecture, distributed databases, and cloud infrastructure." />
+  <title>Emmanuel Corpus — Software Engineer | Backend, Cloud &amp; Agentic AI</title>
+  <meta name="description" content="Portfolio of Emmanuel Corpus, Backend Software Engineer with 10+ years of experience in Java Spring Boot, C/C++, Python, Kubernetes, and Agentic AI development at Amdocs and HP Inc." />
 
   <!-- Google Fonts: Inter (UI) & JetBrains Mono (Engineering / Metrics) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -48,7 +45,6 @@
             }
           },
           transitionTimingFunction: {
-            // Google Material Design 3 standard & emphasized easing curves
             'md-standard': 'cubic-bezier(0.2, 0.0, 0, 1.0)',
             'md-emphasized': 'cubic-bezier(0.2, 0.0, 0, 1.0)',
             'md-decelerate': 'cubic-bezier(0.05, 0.7, 0.1, 1.0)',
@@ -72,7 +68,6 @@
       color: #F5F5F5;
       font-family: 'Inter', sans-serif;
       overflow-x: hidden;
-      selection-background-color: rgba(212, 175, 55, 0.25);
     }
 
     ::selection {
@@ -80,7 +75,7 @@
       color: #FDE68A;
     }
 
-    /* Subtle noise & radial vignette overlay matching Cursor's aesthetic */
+    /* Subtle radial vignette overlay matching Cursor's aesthetic */
     .cursor-vignette {
       background: radial-gradient(circle at 50% 45%, rgba(20, 20, 20, 0.15) 0%, rgba(0, 0, 0, 0.82) 75%, #000000 100%);
     }
@@ -139,12 +134,16 @@
     }
 
     /* Company Logos inside button: dark gray by default, subtle gold tint on button hover */
-    .company-logo-strip svg {
-      color: #4A4A4A;
-      transition: color 320ms cubic-bezier(0.2, 0, 0, 1), transform 320ms cubic-bezier(0.2, 0, 0, 1);
+    .company-logo-strip svg,
+    .company-logo-strip span {
+      color: #525252;
+      border-color: #262626;
+      transition: color 320ms cubic-bezier(0.2, 0, 0, 1), border-color 320ms cubic-bezier(0.2, 0, 0, 1);
     }
-    .btn-gold:hover .company-logo-strip svg {
-      color: #C5A03F;
+    .btn-gold:hover .company-logo-strip svg,
+    .btn-gold:hover .company-logo-strip span {
+      color: #D4AF37;
+      border-color: rgba(212, 175, 55, 0.4);
     }
 
     /* Material Design Ripple Effect */
@@ -176,29 +175,13 @@
       }
     }
 
-    @keyframes marquee-right {
-      0% {
-        transform: translate3d(-50%, 0, 0);
-      }
-      100% {
-        transform: translate3d(0%, 0, 0);
-      }
-    }
-
     .animate-marquee-slow {
       display: flex;
       width: max-content;
       animation: marquee-left 55s linear infinite;
     }
 
-    .animate-marquee-reverse-slow {
-      display: flex;
-      width: max-content;
-      animation: marquee-right 62s linear infinite;
-    }
-
-    .marquee-wrapper:hover .animate-marquee-slow,
-    .marquee-wrapper:hover .animate-marquee-reverse-slow {
+    .marquee-wrapper:hover .animate-marquee-slow {
       animation-play-state: paused;
     }
 
@@ -312,7 +295,7 @@
         <button type="button" onclick="navigateToTrajectory('education')" class="btn-gold px-3.5 py-1.5 rounded-lg text-xs font-medium text-neutral-400 border border-transparent">
           Education
         </button>
-        <a href="#contact" class="btn-gold ml-2 px-4 py-1.5 rounded-lg text-xs font-medium text-neutral-200 border border-cursor-borderLight bg-cursor-surface">
+        <a href="mailto:corpus_e@outlook.com?subject=Software%20Engineering%20Inquiry%20%E2%80%94%20Emmanuel%20Corpus" onclick="openMailWindow(event)" class="btn-gold ml-2 px-4 py-1.5 rounded-lg text-xs font-medium text-neutral-200 border border-cursor-borderLight bg-cursor-surface">
           Contact
         </a>
       </nav>
@@ -329,7 +312,7 @@
       <a href="#projects" class="mobile-nav-link block py-2 text-sm text-neutral-300 hover:text-gold-300">Featured Projects</a>
       <button type="button" onclick="navigateToTrajectory('experience')" class="mobile-nav-link block w-full text-left py-2 text-sm text-neutral-300 hover:text-gold-300">Work Experience</button>
       <button type="button" onclick="navigateToTrajectory('education')" class="mobile-nav-link block w-full text-left py-2 text-sm text-neutral-300 hover:text-gold-300">Education History</button>
-      <a href="#contact" class="mobile-nav-link block py-2 text-sm text-gold-400 font-medium">Contact</a>
+      <a href="mailto:corpus_e@outlook.com?subject=Software%20Engineering%20Inquiry%20%E2%80%94%20Emmanuel%20Corpus" onclick="openMailWindow(event)" class="mobile-nav-link block py-2 text-sm text-gold-400 font-medium">Contact</a>
     </div>
   </header>
 
@@ -350,49 +333,44 @@
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold-400 opacity-75"></span>
             <span class="relative inline-flex rounded-full h-2 w-2 bg-gold-500"></span>
           </span>
-          <!-- REPLACE: Availability or specialization badge text -->
           <span class="font-mono text-xs text-neutral-300 tracking-wide">
-            BACKEND ARCHITECTURE · DISTRIBUTED SYSTEMS · .NET &amp; CLOUD
+            10+ YEARS EXP · BACKEND ARCHITECTURE · CLOUD &amp; AGENTIC AI · GUADALAJARA, MX
           </span>
         </div>
 
         <!-- Name & Role -->
         <div class="space-y-3">
           <h1 class="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white leading-[1.06]">
-            <!-- REPLACE: Your Name -->
             Emmanuel Corpus
           </h1>
-          <p class="text-2xl sm:text-3xl font-medium text-neutral-400 tracking-tight flex items-center gap-3">
-            <!-- REPLACE: Your Role -->
+          <p class="text-2xl sm:text-3xl font-medium text-neutral-400 tracking-tight flex flex-wrap items-center gap-3">
             <span>Software Engineer</span>
             <span class="hidden sm:inline-block text-cursor-borderLight font-light">/</span>
-            <span class="hidden sm:inline-block font-mono text-base text-neutral-500">Backend Specialist</span>
+            <span class="font-mono text-sm sm:text-base text-neutral-500">Backend &amp; Distributed Systems</span>
           </p>
         </div>
 
         <!-- Impact Description (1-2 sentences focused on performance, architecture, and problem-solving) -->
-        <!-- REPLACE: Your personal impact statement -->
         <p class="text-base sm:text-lg text-neutral-300 leading-relaxed max-w-2xl font-normal">
-          Architecting fault-tolerant backend systems, high-throughput APIs, and distributed data pipelines that scale under heavy concurrency. Focused on transforming complex domain bottlenecks into clean, observable, sub-millisecond production architectures.
+          With a decade of experience, I am a Backend Software Engineer specializes in building high-throughput Java Spring Boot microservices, large-scale real-time billing architectures, and seamless legacy C/C++ integrations. 
         </p>
 
-        <!-- Quick Action Buttons: GitHub, LinkedIn, Contact -->
+        <!-- Quick Action Buttons: Contact, GitHub, LinkedIn -->
         <div class="flex flex-wrap items-center gap-3.5 pt-1">
-          <!-- REPLACE: Your real Email or Contact link -->
-          <a href="#contact" class="btn-gold-primary inline-flex items-center gap-2.5 px-5 py-2.5 rounded-lg text-sm font-medium">
-            <i data-lucide="terminal" class="w-4 h-4"></i>
+          <a href="mailto:corpus_e@outlook.com?subject=Software%20Engineering%20Inquiry%20%E2%80%94%20Emmanuel%20Corpus" onclick="openMailWindow(event)" class="btn-gold-primary inline-flex items-center gap-2.5 px-5 py-2.5 rounded-lg text-sm font-medium">
+            <i data-lucide="mail" class="w-4 h-4"></i>
             <span>Contact Me</span>
             <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
           </a>
 
-          <!-- REPLACE: Your real GitHub profile URL -->
-          <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" class="btn-gold inline-flex items-center gap-2.5 px-5 py-2.5 rounded-lg text-sm font-medium bg-cursor-surface border border-cursor-borderLight text-neutral-200">
+          <!-- REPLACE: Update with your exact GitHub profile URL -->
+          <a href="https://github.com/corpus96" target="_blank" rel="noopener noreferrer" class="btn-gold inline-flex items-center gap-2.5 px-5 py-2.5 rounded-lg text-sm font-medium bg-cursor-surface border border-cursor-borderLight text-neutral-200">
             <i data-lucide="github" class="w-4 h-4"></i>
             <span>GitHub</span>
           </a>
 
-          <!-- REPLACE: Your real LinkedIn profile URL -->
-          <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" class="btn-gold inline-flex items-center gap-2.5 px-5 py-2.5 rounded-lg text-sm font-medium bg-cursor-surface border border-cursor-borderLight text-neutral-200">
+          <!-- REPLACE: Update with your exact LinkedIn profile URL -->
+          <a href="https://www.linkedin.com/in/corpusemmanuel" target="_blank" rel="noopener noreferrer" class="btn-gold inline-flex items-center gap-2.5 px-5 py-2.5 rounded-lg text-sm font-medium bg-cursor-surface border border-cursor-borderLight text-neutral-200">
             <i data-lucide="linkedin" class="w-4 h-4"></i>
             <span>LinkedIn</span>
           </a>
@@ -404,11 +382,11 @@
         <!-- Trajectory Navigation Buttons Below Description (Work History with dark-gray company logos + Education History) -->
         <div class="space-y-3">
           <p class="font-mono text-[11px] uppercase tracking-widest text-neutral-500">
-            Explore Verified Trajectory
+            Explore Career &amp; Academic Trajectory
           </p>
 
           <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
-            <!-- Button 1: Work History with Dark-Gray Company Logos -->
+            <!-- Button 1: Work History with Dark-Gray Company Logos (Amdocs & HP Inc.) -->
             <button
               type="button"
               onclick="navigateToTrajectory('experience')"
@@ -423,28 +401,27 @@
                     <span>Work History</span>
                     <i data-lucide="chevron-down" class="w-3.5 h-3.5 opacity-70"></i>
                   </div>
-                  <div class="text-[11px] text-neutral-500 font-mono">3 Roles · Enterprise Systems</div>
+                  <div class="text-[11px] text-neutral-500 font-mono">10+ Years · Enterprise Systems</div>
                 </div>
               </div>
 
-              <!-- Dark-gray monochrome company logos strip (REPLACE with your former employers' SVG logos) -->
-              <div class="company-logo-strip flex items-center gap-3 pl-3 border-l border-cursor-border" title="Previous Companies">
-                <!-- Company 1 Logo (Dark Gray Monochrome SVG) -->
-                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-label="FinTech Core">
-                  <path d="M12 2L2 7l10 5 10-5-10-5zm0 7.5l-6-3 6-3 6 3-6 3zm0 2.5l-10-5v10l10 5 10-5V7l-10 5z"/>
-                </svg>
-                <!-- Company 2 Logo (Dark Gray Monochrome SVG) -->
-                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-label="CloudScale Systems">
-                  <path d="M4 4h7v7H4V4zm9 0h7v7h-7V4zM4 13h7v7H4v-7zm9 3.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
-                </svg>
-                <!-- Company 3 Logo (Dark Gray Monochrome SVG) -->
-                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-label="DataPulse Corp">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
-                </svg>
+              <!-- Dark-gray monochrome company logos strip: Amdocs & HP Inc. -->
+              <div class="company-logo-strip flex items-center gap-2.5 pl-3 border-l border-cursor-border" title="Amdocs & HP Inc.">
+                <!-- Amdocs Monochrome Dark-Gray Wordmark/Badge -->
+                <span class="inline-flex items-center gap-1.5 px-2 py-1 rounded bg-[#111111] border text-[11px] font-mono font-semibold tracking-tight">
+                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2L2 19h4.5l2.2-4h6.6l2.2 4H22L12 2zm-1.5 9.5L12 8.2l1.5 3.3h-3z"/>
+                  </svg>
+                  amdocs
+                </span>
+                <!-- HP Inc. Monochrome Dark-Gray Logo -->
+                <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#111111] border text-[11px] font-mono font-bold italic tracking-tighter" title="HP Inc.">
+                  hp
+                </span>
               </div>
             </button>
 
-            <!-- Button 2: Education History -->
+            <!-- Button 2: Education History (University of Guadalajara) -->
             <button
               type="button"
               onclick="navigateToTrajectory('education')"
@@ -458,7 +435,7 @@
                   <span>Education History</span>
                   <i data-lucide="chevron-down" class="w-3.5 h-3.5 opacity-70"></i>
                 </div>
-                <div class="text-[11px] text-neutral-500 font-mono">B.S. Computer Science &amp; Certs</div>
+                <div class="text-[11px] text-neutral-500 font-mono">B.S. Computer Science · UdeG</div>
               </div>
             </button>
           </div>
@@ -488,75 +465,70 @@
       <!-- Horizontal Moving Stream Wrapper -->
       <div class="marquee-wrapper marquee-mask relative overflow-hidden py-3 space-y-5">
 
-        <!-- Row 1: Moving Left Slowly (Category Cards) -->
+        <!-- Row Moving Left Slowly (Category Cards) -->
         <div class="animate-marquee-slow gap-5">
           <!-- Set A (Original) -->
           <div class="flex items-stretch gap-5 pr-5">
-            <!-- Category 1: Languages & Runtimes -->
-            <!-- REPLACE: Customize your languages and frameworks -->
+            <!-- Category 1: Programming Languages -->
             <div class="cursor-card w-[340px] p-5 rounded-xl flex flex-col justify-between shrink-0">
               <div class="flex items-center justify-between mb-4">
-                <span class="font-mono text-xs uppercase tracking-wider text-neutral-400">Languages &amp; Core</span>
+                <span class="font-mono text-xs uppercase tracking-wider text-neutral-400">Programming Languages</span>
                 <i data-lucide="code-2" class="w-4 h-4 text-gold-500"></i>
               </div>
               <div class="flex flex-wrap gap-2">
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">C# 12</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">.NET 8 / Core</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">ASP.NET Core</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">SQL / T-SQL</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">TypeScript</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Java</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">C / C++</span>
                 <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Python</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">SQL</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Shell Scripting (Bash)</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">VBA</span>
               </div>
             </div>
 
-            <!-- Category 2: Databases & Caching -->
-            <!-- REPLACE: Customize your databases -->
+            <!-- Category 2: Databases & Messaging -->
             <div class="cursor-card w-[340px] p-5 rounded-xl flex flex-col justify-between shrink-0">
               <div class="flex items-center justify-between mb-4">
-                <span class="font-mono text-xs uppercase tracking-wider text-neutral-400">Databases &amp; Storage</span>
+                <span class="font-mono text-xs uppercase tracking-wider text-neutral-400">Databases &amp; Messaging</span>
                 <i data-lucide="database" class="w-4 h-4 text-gold-500"></i>
               </div>
               <div class="flex flex-wrap gap-2">
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">PostgreSQL</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Redis (Streams/Cache)</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">SQL Server</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Entity Framework Core</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Dapper ORM</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">MongoDB</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Oracle DB</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Couchbase (NoSQL)</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Apache Kafka</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">RabbitMQ</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Relational &amp; NoSQL</span>
               </div>
             </div>
 
-            <!-- Category 3: DevOps & Cloud Infrastructure -->
-            <!-- REPLACE: Customize your DevOps tools -->
+            <!-- Category 3: Cloud, DevOps & Linux -->
             <div class="cursor-card w-[340px] p-5 rounded-xl flex flex-col justify-between shrink-0">
               <div class="flex items-center justify-between mb-4">
-                <span class="font-mono text-xs uppercase tracking-wider text-neutral-400">DevOps &amp; Tooling</span>
+                <span class="font-mono text-xs uppercase tracking-wider text-neutral-400">Cloud, DevOps &amp; OS</span>
                 <i data-lucide="container" class="w-4 h-4 text-gold-500"></i>
               </div>
               <div class="flex flex-wrap gap-2">
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Docker</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">OpenShift (OCP)</span>
                 <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Kubernetes</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">GitHub Actions CI/CD</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">AWS</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Jenkins &amp; GitLab CI/CD</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Linux Administration</span>
                 <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Git</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Azure / AWS</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">OpenTelemetry</span>
               </div>
             </div>
 
-            <!-- Category 4: Architecture & Patterns -->
-            <!-- REPLACE: Customize your architectural skills -->
-            <div class="cursor-card w-[340px] p-5 rounded-xl flex flex-col justify-between shrink-0">
+            <!-- Category 4: Architecture & Agentic AI -->
+            <div class="cursor-card w-[360px] p-5 rounded-xl flex flex-col justify-between shrink-0">
               <div class="flex items-center justify-between mb-4">
-                <span class="font-mono text-xs uppercase tracking-wider text-neutral-400">System Architecture</span>
-                <i data-lucide="network" class="w-4 h-4 text-gold-500"></i>
+                <span class="font-mono text-xs uppercase tracking-wider text-neutral-400">Architecture &amp; Agentic AI</span>
+                <i data-lucide="sparkles" class="w-4 h-4 text-gold-500"></i>
               </div>
               <div class="flex flex-wrap gap-2">
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Microservices</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">RESTful APIs</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">gRPC</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">RabbitMQ / Kafka</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">DDD &amp; Clean Arch</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">CQRS / Event-Driven</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Spring Boot Microservices</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">REST &amp; SOAP APIs</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Agentic AI (Cursor/Copilot)</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Model Context Protocol (MCP)</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">RAG &amp; Prompt Eng.</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Mockito</span>
               </div>
             </div>
           </div>
@@ -565,61 +537,60 @@
           <div class="flex items-stretch gap-5 pr-5" aria-hidden="true">
             <div class="cursor-card w-[340px] p-5 rounded-xl flex flex-col justify-between shrink-0">
               <div class="flex items-center justify-between mb-4">
-                <span class="font-mono text-xs uppercase tracking-wider text-neutral-400">Languages &amp; Core</span>
+                <span class="font-mono text-xs uppercase tracking-wider text-neutral-400">Programming Languages</span>
                 <i data-lucide="code-2" class="w-4 h-4 text-gold-500"></i>
               </div>
               <div class="flex flex-wrap gap-2">
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">C# 12</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">.NET 8 / Core</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">ASP.NET Core</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">SQL / T-SQL</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">TypeScript</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Java</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">C / C++</span>
                 <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Python</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">SQL</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Shell Scripting (Bash)</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">VBA</span>
               </div>
             </div>
 
             <div class="cursor-card w-[340px] p-5 rounded-xl flex flex-col justify-between shrink-0">
               <div class="flex items-center justify-between mb-4">
-                <span class="font-mono text-xs uppercase tracking-wider text-neutral-400">Databases &amp; Storage</span>
+                <span class="font-mono text-xs uppercase tracking-wider text-neutral-400">Databases &amp; Messaging</span>
                 <i data-lucide="database" class="w-4 h-4 text-gold-500"></i>
               </div>
               <div class="flex flex-wrap gap-2">
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">PostgreSQL</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Redis (Streams/Cache)</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">SQL Server</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Entity Framework Core</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Dapper ORM</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">MongoDB</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Oracle DB</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Couchbase (NoSQL)</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Apache Kafka</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">RabbitMQ</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Relational &amp; NoSQL</span>
               </div>
             </div>
 
             <div class="cursor-card w-[340px] p-5 rounded-xl flex flex-col justify-between shrink-0">
               <div class="flex items-center justify-between mb-4">
-                <span class="font-mono text-xs uppercase tracking-wider text-neutral-400">DevOps &amp; Tooling</span>
+                <span class="font-mono text-xs uppercase tracking-wider text-neutral-400">Cloud, DevOps &amp; OS</span>
                 <i data-lucide="container" class="w-4 h-4 text-gold-500"></i>
               </div>
               <div class="flex flex-wrap gap-2">
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Docker</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">OpenShift (OCP)</span>
                 <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Kubernetes</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">GitHub Actions CI/CD</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">AWS</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Jenkins &amp; GitLab CI/CD</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Linux Administration</span>
                 <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Git</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Azure / AWS</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">OpenTelemetry</span>
               </div>
             </div>
 
-            <div class="cursor-card w-[340px] p-5 rounded-xl flex flex-col justify-between shrink-0">
+            <div class="cursor-card w-[360px] p-5 rounded-xl flex flex-col justify-between shrink-0">
               <div class="flex items-center justify-between mb-4">
-                <span class="font-mono text-xs uppercase tracking-wider text-neutral-400">System Architecture</span>
-                <i data-lucide="network" class="w-4 h-4 text-gold-500"></i>
+                <span class="font-mono text-xs uppercase tracking-wider text-neutral-400">Architecture &amp; Agentic AI</span>
+                <i data-lucide="sparkles" class="w-4 h-4 text-gold-500"></i>
               </div>
               <div class="flex flex-wrap gap-2">
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Microservices</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">RESTful APIs</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">gRPC</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">RabbitMQ / Kafka</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">DDD &amp; Clean Arch</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">CQRS / Event-Driven</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Spring Boot Microservices</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">REST &amp; SOAP APIs</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Agentic AI (Cursor/Copilot)</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Model Context Protocol (MCP)</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">RAG &amp; Prompt Eng.</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Mockito</span>
               </div>
             </div>
           </div>
@@ -629,65 +600,61 @@
     </section>
 
     <!-- =================================================================== -->
-    <!-- 3. FEATURED PROJECTS (3 Technical Challenge Cards)                  -->
+    <!-- 3. FEATURED PROJECTS (3 Technical Challenge Cards from CV)          -->
     <!-- =================================================================== -->
     <section id="projects" class="space-y-10 md-reveal">
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div>
           <div class="font-mono text-xs uppercase tracking-widest text-gold-500 mb-2">
-            02 // Production Engineering
+            02 // Engineering &amp; Automation Projects
           </div>
           <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-white">
-            Featured Backend Projects
+            Featured Projects
           </h2>
         </div>
         <p class="text-sm text-neutral-400 max-w-md">
-           Architectural deep-dives focused on throughput optimization, data consistency, and resilient distributed workflows.
+          Solutions built to automate media synthesis, computer-vision color extraction, and high-volume enterprise financial data parsing.
         </p>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
         <!-- =============================================================== -->
-        <!-- PROJECT CARD 1 — REPLACE WITH YOUR REAL PROJECT #1              -->
+        <!-- PROJECT CARD 1: SmartMinutes (2026)                             -->
         <!-- =============================================================== -->
         <article class="cursor-card rounded-2xl p-6 flex flex-col justify-between space-y-6">
           <div class="space-y-4">
             <div class="flex items-center justify-between">
               <span class="font-mono text-xs text-gold-400 px-2.5 py-1 rounded-md bg-gold-500/10 border border-gold-500/20">
-                99.99% Uptime · 12k req/s
+                2026 · -62% Video Duration
               </span>
-              <i data-lucide="cpu" class="w-5 h-5 text-neutral-500"></i>
+              <i data-lucide="video" class="w-5 h-5 text-neutral-500"></i>
             </div>
 
-            <!-- REPLACE: Project 1 Title -->
             <h3 class="text-xl font-semibold text-white tracking-tight">
-              Distributed Payment Ledger &amp; Idempotency Engine
+              SmartMinutes — Automated Meeting Condenser
             </h3>
 
-            <!-- REPLACE: Project 1 Technical Challenge Description -->
             <p class="text-sm text-neutral-400 leading-relaxed">
-              Eliminated double-charging race conditions during peak checkout bursts by designing a distributed lock and idempotency-key middleware in <span class="text-neutral-200">.NET 8</span> backed by <span class="text-neutral-200">Redis Lua scripts</span> and transactional outbox patterns over <span class="text-neutral-200">PostgreSQL</span>. Reduced p99 latency by <span class="text-neutral-200 font-mono">64%</span>.
+              Engineered an automated audio/video processing pipeline in <span class="text-neutral-200">Python</span> that condenses long-form meeting recordings into key highlight reels by programmatically detecting and stripping dead air, silence, and off-topic segments. Generates synchronized transcripts while compressing <span class="text-neutral-200 font-mono">2-hour recordings down to 45-minute</span> actionable summaries.
             </p>
           </div>
 
           <div class="space-y-5 pt-2">
-            <!-- REPLACE: Project 1 Tech Tags -->
             <div class="flex flex-wrap gap-1.5">
-              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-cursor-elevated text-neutral-300 border border-cursor-border">C# / .NET 8</span>
-              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-cursor-elevated text-neutral-300 border border-cursor-border">PostgreSQL</span>
-              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-cursor-elevated text-neutral-300 border border-cursor-border">Redis</span>
-              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-cursor-elevated text-neutral-300 border border-cursor-border">RabbitMQ</span>
-              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-cursor-elevated text-neutral-300 border border-cursor-border">Docker</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-cursor-elevated text-neutral-300 border border-cursor-border">Python</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-cursor-elevated text-neutral-300 border border-cursor-border">Media Processing</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-cursor-elevated text-neutral-300 border border-cursor-border">Auto-Transcription</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-cursor-elevated text-neutral-300 border border-cursor-border">NLP / Audio Segmentation</span>
             </div>
 
-            <!-- REPLACE: Project 1 Repository & Documentation Links -->
+            <!-- REPLACE: Add your exact SmartMinutes repository and demo URLs -->
             <div class="flex items-center gap-3 pt-3 border-t border-cursor-border">
-              <a href="https://github.com/yourusername/project-1" target="_blank" rel="noopener noreferrer" class="btn-gold flex-1 inline-flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-medium bg-cursor-surface border border-cursor-borderLight text-neutral-200">
+              <a href="https://github.com/corpus96" target="_blank" rel="noopener noreferrer" class="btn-gold flex-1 inline-flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-medium bg-cursor-surface border border-cursor-borderLight text-neutral-200">
                 <i data-lucide="github" class="w-3.5 h-3.5"></i>
                 <span>View Repository</span>
               </a>
-              <a href="https://github.com/yourusername/project-1#readme" target="_blank" rel="noopener noreferrer" class="btn-gold flex-1 inline-flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-medium bg-cursor-surface border border-cursor-borderLight text-neutral-200">
+              <a href="https://github.com/corpus96" target="_blank" rel="noopener noreferrer" class="btn-gold flex-1 inline-flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-medium bg-cursor-surface border border-cursor-borderLight text-neutral-200">
                 <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
                 <span>Documentation</span>
               </a>
@@ -696,45 +663,41 @@
         </article>
 
         <!-- =============================================================== -->
-        <!-- PROJECT CARD 2 — REPLACE WITH YOUR REAL PROJECT #2              -->
+        <!-- PROJECT CARD 2: Remordicion (2017)                              -->
         <!-- =============================================================== -->
         <article class="cursor-card rounded-2xl p-6 flex flex-col justify-between space-y-6">
           <div class="space-y-4">
             <div class="flex items-center justify-between">
               <span class="font-mono text-xs text-gold-400 px-2.5 py-1 rounded-md bg-gold-500/10 border border-gold-500/20">
-                -78% Query Time · CQRS
+                2017 · Automated Color Quantization
               </span>
-              <i data-lucide="layers" class="w-5 h-5 text-neutral-500"></i>
+              <i data-lucide="palette" class="w-5 h-5 text-neutral-500"></i>
             </div>
 
-            <!-- REPLACE: Project 2 Title -->
             <h3 class="text-xl font-semibold text-white tracking-tight">
-              High-Throughput Telemetry &amp; Event Ingestion Pipeline
+              Remordicion — Frame &amp; Color Nomenclature Bot
             </h3>
 
-            <!-- REPLACE: Project 2 Technical Challenge Description -->
             <p class="text-sm text-neutral-400 leading-relaxed">
-              Refactored a monolithic synchronous reporting API into an event-driven microservice architecture using <span class="text-neutral-200">gRPC</span>, <span class="text-neutral-200">System.Threading.Channels</span>, and partitioned PostgreSQL time-series tables. Sustained <span class="text-neutral-200 font-mono">50,000+ events/min</span> with zero memory leaks.
+              Built an autonomous <span class="text-neutral-200">Python</span> bot for Twitter/X that extracts frames from music videos, performs color clustering to generate exact <span class="text-neutral-200">HEX color palettes</span>, and maps RGB vectors against a color-space dictionary to label each swatch with its precise pigment name (e.g., <span class="italic text-neutral-300">Alizarin, Phthalo Blue</span>).
             </p>
           </div>
 
           <div class="space-y-5 pt-2">
-            <!-- REPLACE: Project 2 Tech Tags -->
             <div class="flex flex-wrap gap-1.5">
-              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-cursor-elevated text-neutral-300 border border-cursor-border">ASP.NET Core</span>
-              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-cursor-elevated text-neutral-300 border border-cursor-border">gRPC</span>
-              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-cursor-elevated text-neutral-300 border border-cursor-border">Dapper</span>
-              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-cursor-elevated text-neutral-300 border border-cursor-border">PostgreSQL</span>
-              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-cursor-elevated text-neutral-300 border border-cursor-border">OpenTelemetry</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-cursor-elevated text-neutral-300 border border-cursor-border">Python</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-cursor-elevated text-neutral-300 border border-cursor-border">Image Processing</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-cursor-elevated text-neutral-300 border border-cursor-border">Color Space Matching</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-cursor-elevated text-neutral-300 border border-cursor-border">REST API Bot</span>
             </div>
 
-            <!-- REPLACE: Project 2 Repository & Documentation Links -->
+            <!-- REPLACE: Add your exact Remordicion repository and demo URLs -->
             <div class="flex items-center gap-3 pt-3 border-t border-cursor-border">
-              <a href="https://github.com/yourusername/project-2" target="_blank" rel="noopener noreferrer" class="btn-gold flex-1 inline-flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-medium bg-cursor-surface border border-cursor-borderLight text-neutral-200">
+              <a href="https://github.com/corpus96" target="_blank" rel="noopener noreferrer" class="btn-gold flex-1 inline-flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-medium bg-cursor-surface border border-cursor-borderLight text-neutral-200">
                 <i data-lucide="github" class="w-3.5 h-3.5"></i>
                 <span>View Repository</span>
               </a>
-              <a href="https://github.com/yourusername/project-2#readme" target="_blank" rel="noopener noreferrer" class="btn-gold flex-1 inline-flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-medium bg-cursor-surface border border-cursor-borderLight text-neutral-200">
+              <a href="https://github.com/corpus96" target="_blank" rel="noopener noreferrer" class="btn-gold flex-1 inline-flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-medium bg-cursor-surface border border-cursor-borderLight text-neutral-200">
                 <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
                 <span>Live Demo</span>
               </a>
@@ -743,47 +706,42 @@
         </article>
 
         <!-- =============================================================== -->
-        <!-- PROJECT CARD 3 — REPLACE WITH YOUR REAL PROJECT #3              -->
+        <!-- PROJECT CARD 3: Enterprise PDF Financial Parser & K8s CLI Suite -->
         <!-- =============================================================== -->
         <article class="cursor-card rounded-2xl p-6 flex flex-col justify-between space-y-6">
           <div class="space-y-4">
             <div class="flex items-center justify-between">
               <span class="font-mono text-xs text-gold-400 px-2.5 py-1 rounded-md bg-gold-500/10 border border-gold-500/20">
-                Sub-5ms Auth · Zero-Trust
+                -80% Manual Work · $15–20M/Qtr
               </span>
-              <i data-lucide="shield-check" class="w-5 h-5 text-neutral-500"></i>
+              <i data-lucide="file-spreadsheet" class="w-5 h-5 text-neutral-500"></i>
             </div>
 
-            <!-- REPLACE: Project 3 Title -->
             <h3 class="text-xl font-semibold text-white tracking-tight">
-              Multi-Tenant API Gateway &amp; Distributed Rate Limiter
+              Financial PDF Extraction Library &amp; K8s Ops Suite
             </h3>
 
-            <!-- REPLACE: Project 3 Technical Challenge Description -->
             <p class="text-sm text-neutral-400 leading-relaxed">
-              Engineered a reverse-proxy gateway utilizing <span class="text-neutral-200">YARP</span> and sliding-window rate-limiting algorithms in <span class="text-neutral-200">Redis Cluster</span>. Isolated noisy multi-tenant workloads, automated JWT key rotation, and cut downstream database load by <span class="text-neutral-200 font-mono">45%</span>.
+              Authored a reusable <span class="text-neutral-200">Python</span> library that parses unstructured financial PDF reports into structured Excel schemas—adopted across external enterprise teams to process hundreds of monthly reports (<span class="text-neutral-200 font-mono">$15–20M quarterly revenue</span>). Paired with Linux Bash tools automating Kubernetes pod-log and ConfigMap diagnostics.
             </p>
           </div>
 
           <div class="space-y-5 pt-2">
-            <!-- REPLACE: Project 3 Tech Tags -->
             <div class="flex flex-wrap gap-1.5">
-              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-cursor-elevated text-neutral-300 border border-cursor-border">.NET 8 / YARP</span>
-              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-cursor-elevated text-neutral-300 border border-cursor-border">Redis Cluster</span>
-              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-cursor-elevated text-neutral-300 border border-cursor-border">OAuth2 / JWT</span>
-              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-cursor-elevated text-neutral-300 border border-cursor-border">Docker Compose</span>
-              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-cursor-elevated text-neutral-300 border border-cursor-border">GitHub Actions</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-cursor-elevated text-neutral-300 border border-cursor-border">Python</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-cursor-elevated text-neutral-300 border border-cursor-border">Linux Shell</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-cursor-elevated text-neutral-300 border border-cursor-border">Kubernetes CLI</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-cursor-elevated text-neutral-300 border border-cursor-border">Data Pipelines</span>
             </div>
 
-            <!-- REPLACE: Project 3 Repository & Documentation Links -->
             <div class="flex items-center gap-3 pt-3 border-t border-cursor-border">
-              <a href="https://github.com/yourusername/project-3" target="_blank" rel="noopener noreferrer" class="btn-gold flex-1 inline-flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-medium bg-cursor-surface border border-cursor-borderLight text-neutral-200">
-                <i data-lucide="github" class="w-3.5 h-3.5"></i>
-                <span>View Repository</span>
-              </a>
-              <a href="https://github.com/yourusername/project-3#readme" target="_blank" rel="noopener noreferrer" class="btn-gold flex-1 inline-flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-medium bg-cursor-surface border border-cursor-borderLight text-neutral-200">
-                <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
-                <span>Documentation</span>
+              <button type="button" onclick="navigateToTrajectory('experience')" class="btn-gold flex-1 inline-flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-medium bg-cursor-surface border border-cursor-borderLight text-neutral-200">
+                <i data-lucide="briefcase" class="w-3.5 h-3.5"></i>
+                <span>Case Study in Exp</span>
+              </button>
+              <a href="#contact" class="btn-gold flex-1 inline-flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-medium bg-cursor-surface border border-cursor-borderLight text-neutral-200">
+                <i data-lucide="terminal" class="w-3.5 h-3.5"></i>
+                <span>Architecture Info</span>
               </a>
             </div>
           </div>
@@ -815,7 +773,7 @@
             class="btn-gold px-4 py-2 rounded-lg text-xs font-medium flex items-center gap-2 bg-cursor-elevated text-gold-300 border border-gold-500/40"
           >
             <i data-lucide="briefcase" class="w-3.5 h-3.5"></i>
-            <span>Work Experience</span>
+            <span>Work Experience (2)</span>
           </button>
           <button
             type="button"
@@ -824,150 +782,122 @@
             class="btn-gold px-4 py-2 rounded-lg text-xs font-medium flex items-center gap-2 text-neutral-400 border border-transparent"
           >
             <i data-lucide="graduation-cap" class="w-3.5 h-3.5"></i>
-            <span>Education &amp; Certifications</span>
+            <span>Education &amp; Profile</span>
           </button>
         </div>
       </div>
 
       <!-- ================================================================= -->
-      <!-- TAB PANEL 1: WORK EXPERIENCE TIMELINE                             -->
+      <!-- TAB PANEL 1: WORK EXPERIENCE TIMELINE (Amdocs & HP Inc.)          -->
       <!-- ================================================================= -->
-      <div id="tabPanel-experience" class="space-y-4 transition-all duration-300">
+      <div id="tabPanel-experience" class="space-y-5 transition-all duration-300">
 
-        <!-- EXPERIENCE ITEM 1 (REPLACE WITH YOUR REAL ROLE #1) -->
+        <!-- EXPERIENCE ITEM 1: AMDOCS -->
         <div class="cursor-card rounded-2xl p-6">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div class="flex items-start sm:items-center gap-4">
-              <!-- Dark Gray Company Logo -->
-              <div class="w-11 h-11 rounded-xl bg-cursor-elevated border border-cursor-borderLight flex items-center justify-center text-neutral-500 shrink-0">
-                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2L2 7l10 5 10-5-10-5zm0 7.5l-6-3 6-3 6 3-6 3zm0 2.5l-10-5v10l10 5 10-5V7l-10 5z"/>
+              <!-- Dark Gray Amdocs Badge -->
+              <div class="w-12 h-12 rounded-xl bg-cursor-elevated border border-cursor-borderLight flex items-center justify-center text-neutral-400 shrink-0 font-mono font-bold text-xs">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" aria-label="Amdocs">
+                  <path d="M12 2L2 19h4.5l2.2-4h6.6l2.2 4H22L12 2zm-1.5 9.5L12 8.2l1.5 3.3h-3z"/>
                 </svg>
               </div>
               <div>
-                <!-- REPLACE: Job Title & Company Name -->
-                <h3 class="text-lg font-semibold text-white">Senior Backend Software Engineer</h3>
+                <h3 class="text-lg font-semibold text-white">Software Engineer Experienced</h3>
                 <p class="text-sm text-neutral-400">
-                  FinTech Core Systems · <span class="font-mono text-xs text-neutral-500">Full-Time · Remote</span>
+                  Amdocs · <span class="font-mono text-xs text-neutral-500">Guadalajara, Mexico</span>
                 </p>
               </div>
             </div>
 
             <div class="flex items-center gap-3 self-start sm:self-center">
-              <!-- REPLACE: Dates -->
-              <span class="font-mono text-xs text-neutral-400 bg-cursor-elevated px-3 py-1 rounded-md border border-cursor-border">
-                2023 — Present
+              <span class="font-mono text-xs text-gold-400 bg-gold-500/10 px-3 py-1 rounded-md border border-gold-500/20">
+                May 2021 — Present
               </span>
               <button
                 type="button"
-                onclick="toggleAccordion('exp-1', this)"
+                onclick="toggleAccordion('exp-amdocs', this)"
                 class="btn-gold px-3 py-1.5 rounded-lg text-xs font-mono border border-cursor-borderLight bg-cursor-surface text-neutral-300 flex items-center gap-1.5"
               >
-                <span>Details</span>
+                <span>Impact</span>
                 <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-300 rotate-180"></i>
               </button>
             </div>
           </div>
 
-          <!-- Expandable Details (Open by default on first item) -->
-          <div id="exp-1" class="accordion-content open">
-            <div class="accordion-inner pt-5 mt-5 border-t border-cursor-border space-y-3 text-sm text-neutral-300">
-              <!-- REPLACE: Bullet points of achievements -->
-              <ul class="space-y-2 list-disc list-inside text-neutral-400">
-                <li>Designed and migrated core settlement services from legacy monolithic WCF services to <span class="text-neutral-200">.NET 8 Microservices</span>, cutting infrastructure costs by 35%.</li>
-                <li>Optimized complex PostgreSQL analytical queries and indexing strategies, lowering average API response times from <span class="font-mono text-neutral-200">420ms to 38ms</span>.</li>
-                <li>Implemented automated CI/CD pipelines with GitHub Actions, Docker multi-stage builds, and integration test containers.</li>
+          <!-- Expandable Details (Open by default) -->
+          <div id="exp-amdocs" class="accordion-content open">
+            <div class="accordion-inner pt-5 mt-5 border-t border-cursor-border space-y-4 text-sm text-neutral-300">
+              <!-- Key Metrics Row -->
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pb-2">
+                <div class="p-3 rounded-lg bg-cursor-elevated border border-cursor-border">
+                  <div class="font-mono text-base font-semibold text-gold-400">-70%</div>
+                  <div class="text-[11px] text-neutral-400">Open Defect Backlog</div>
+                </div>
+                <div class="p-3 rounded-lg bg-cursor-elevated border border-cursor-border">
+                  <div class="font-mono text-base font-semibold text-gold-400">30+ Sprints</div>
+                  <div class="text-[11px] text-neutral-400">Delivered w/ Agentic AI</div>
+                </div>
+                <div class="p-3 rounded-lg bg-cursor-elevated border border-cursor-border">
+                  <div class="font-mono text-base font-semibold text-gold-400">15,000+</div>
+                  <div class="text-[11px] text-neutral-400">Customers Unblocked (DB Fix)</div>
+                </div>
+                <div class="p-3 rounded-lg bg-cursor-elevated border border-cursor-border">
+                  <div class="font-mono text-base font-semibold text-gold-400">Millions</div>
+                  <div class="text-[11px] text-neutral-400">Real-Time Billing Records</div>
+                </div>
+              </div>
+
+              <ul class="space-y-2.5 list-disc list-inside text-neutral-400 leading-relaxed">
+                <li>Developing and maintaining <span class="text-neutral-200">Java Spring Boot microservices</span> across relational (<span class="text-neutral-200">Oracle DB</span>) and non-relational (<span class="text-neutral-200">Couchbase</span>) databases, orchestrated via <span class="text-neutral-200">OpenShift / Kubernetes</span> with automated CI/CD pipelines (<span class="text-neutral-200">Jenkins, GitLab</span>).</li>
+                <li>Pioneered <span class="text-neutral-200">Agentic AI integration</span> into feature engineering and defect resolution—successfully delivering <span class="text-neutral-200 font-mono">30+ development iterations</span> and resolving <span class="text-neutral-200 font-mono">50+ defects</span> through prompt engineering, token optimization, custom rule configurations, RAG, and <span class="text-neutral-200">Model Context Protocol (MCP)</span> integrations.</li>
+                <li>Designed, developed, and maintained mission-critical billing and application logic processing real-time billing reports for <span class="text-neutral-200">millions of customers</span>.</li>
+                <li>Built high-throughput <span class="text-neutral-200">REST APIs</span> and data integrations parsing JSON, XML, and CSV payloads while maintaining <span class="text-neutral-200">SOAP endpoints in legacy C/C++ systems</span> to guarantee backward compatibility.</li>
+                <li>Diagnosed and resolved critical production incidents, including a severe database performance bottleneck affecting <span class="text-neutral-200 font-mono">15,000+ customers</span>, while acting as primary technical point of contact for client escalations with same-day turnaround.</li>
+                <li>Reduced the team's open defect backlog by <span class="text-neutral-200 font-mono">70%</span> (resolving up to 5 issues per day) and independently owned full sprint iterations end-to-end without direct lead supervision.</li>
+                <li>Engineered <span class="text-neutral-200">Linux shell scripting tools</span> to automate Kubernetes pod-log retrieval, ConfigMap inspection, and routine environment health checks; recognized by leadership for proactive ownership and mentoring new engineers.</li>
               </ul>
             </div>
           </div>
         </div>
 
-        <!-- EXPERIENCE ITEM 2 (REPLACE WITH YOUR REAL ROLE #2) -->
+        <!-- EXPERIENCE ITEM 2: HP INC. -->
         <div class="cursor-card rounded-2xl p-6">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div class="flex items-start sm:items-center gap-4">
-              <div class="w-11 h-11 rounded-xl bg-cursor-elevated border border-cursor-borderLight flex items-center justify-center text-neutral-500 shrink-0">
-                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M4 4h7v7H4V4zm9 0h7v7h-7V4zM4 13h7v7H4v-7zm9 3.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
-                </svg>
+              <!-- Dark Gray HP Inc. Badge -->
+              <div class="w-12 h-12 rounded-xl bg-cursor-elevated border border-cursor-borderLight flex items-center justify-center text-neutral-400 shrink-0 font-mono font-bold italic text-base">
+                hp
               </div>
               <div>
-                <!-- REPLACE: Job Title & Company Name -->
-                <h3 class="text-lg font-semibold text-white">Backend Developer (.NET &amp; Cloud)</h3>
+                <h3 class="text-lg font-semibold text-white">Software Engineer</h3>
                 <p class="text-sm text-neutral-400">
-                  CloudScale Logistics · <span class="font-mono text-xs text-neutral-500">Full-Time · Hybrid</span>
+                  HP Inc. · <span class="font-mono text-xs text-neutral-500">Guadalajara, Mexico</span>
                 </p>
               </div>
             </div>
 
             <div class="flex items-center gap-3 self-start sm:self-center">
-              <!-- REPLACE: Dates -->
               <span class="font-mono text-xs text-neutral-400 bg-cursor-elevated px-3 py-1 rounded-md border border-cursor-border">
-                2021 — 2023
+                June 2016 — Feb 2021
               </span>
               <button
                 type="button"
-                onclick="toggleAccordion('exp-2', this)"
+                onclick="toggleAccordion('exp-hp', this)"
                 class="btn-gold px-3 py-1.5 rounded-lg text-xs font-mono border border-cursor-borderLight bg-cursor-surface text-neutral-300 flex items-center gap-1.5"
               >
-                <span>Details</span>
-                <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-300"></i>
+                <span>Impact</span>
+                <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-300 rotate-180"></i>
               </button>
             </div>
           </div>
 
-          <div id="exp-2" class="accordion-content">
+          <div id="exp-hp" class="accordion-content open">
             <div class="accordion-inner pt-5 mt-5 border-t border-cursor-border space-y-3 text-sm text-neutral-300">
-              <!-- REPLACE: Bullet points of achievements -->
-              <ul class="space-y-2 list-disc list-inside text-neutral-400">
-                <li>Built RESTful APIs and background worker services in <span class="text-neutral-200">C# / ASP.NET Core</span> serving real-time fleet tracking for 15,000+ active vehicles.</li>
-                <li>Introduced distributed caching with <span class="text-neutral-200">Redis</span> to offload repetitive geospatial lookups, reducing database CPU utilization by 50%.</li>
-                <li>Authored comprehensive unit and integration test suites using xUnit and Moq, raising code coverage to 88%.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <!-- EXPERIENCE ITEM 3 (REPLACE WITH YOUR REAL ROLE #3) -->
-        <div class="cursor-card rounded-2xl p-6">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div class="flex items-start sm:items-center gap-4">
-              <div class="w-11 h-11 rounded-xl bg-cursor-elevated border border-cursor-borderLight flex items-center justify-center text-neutral-500 shrink-0">
-                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
-                </svg>
-              </div>
-              <div>
-                <!-- REPLACE: Job Title & Company Name -->
-                <h3 class="text-lg font-semibold text-white">Software Engineer Intern / Junior Backend</h3>
-                <p class="text-sm text-neutral-400">
-                  DataPulse Solutions · <span class="font-mono text-xs text-neutral-500">On-Site</span>
-                </p>
-              </div>
-            </div>
-
-            <div class="flex items-center gap-3 self-start sm:self-center">
-              <!-- REPLACE: Dates -->
-              <span class="font-mono text-xs text-neutral-400 bg-cursor-elevated px-3 py-1 rounded-md border border-cursor-border">
-                2020 — 2021
-              </span>
-              <button
-                type="button"
-                onclick="toggleAccordion('exp-3', this)"
-                class="btn-gold px-3 py-1.5 rounded-lg text-xs font-mono border border-cursor-borderLight bg-cursor-surface text-neutral-300 flex items-center gap-1.5"
-              >
-                <span>Details</span>
-                <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-300"></i>
-              </button>
-            </div>
-          </div>
-
-          <div id="exp-3" class="accordion-content">
-            <div class="accordion-inner pt-5 mt-5 border-t border-cursor-border space-y-3 text-sm text-neutral-300">
-              <!-- REPLACE: Bullet points of achievements -->
-              <ul class="space-y-2 list-disc list-inside text-neutral-400">
-                <li>Developed internal data synchronization microservices connecting ERP databases with customer portals via SQL Server and EF Core.</li>
-                <li>Automated nightly database backup verification and schema migration scripts.</li>
+              <ul class="space-y-2.5 list-disc list-inside text-neutral-400 leading-relaxed">
+                <li>Served as the sole software developer supporting the finance organization's automation architecture, building <span class="text-neutral-200">Python, VBA, and web-scraping pipelines</span> across Excel, Word, and Outlook—cutting manual workload by <span class="text-neutral-200 font-mono">80%</span> and processing <span class="text-neutral-200 font-mono">$15–20M in revenue per quarter</span>.</li>
+                <li>Architected and shipped a custom library to extract and normalize tabular data directly from PDF documents into Excel; shared across external departments and adopted as a <span class="text-neutral-200">proprietary internal tool</span> processing hundreds of financial reports monthly.</li>
+                <li>Proactively identified workflow bottlenecks across financial operations and converted manual reporting procedures into resilient, reusable software tools without formal assignment.</li>
               </ul>
             </div>
           </div>
@@ -976,65 +906,74 @@
       </div>
 
       <!-- ================================================================= -->
-      <!-- TAB PANEL 2: EDUCATION HISTORY & CERTIFICATIONS                   -->
+      <!-- TAB PANEL 2: EDUCATION HISTORY, LANGUAGES & INTERESTS             -->
       <!-- ================================================================= -->
       <div id="tabPanel-education" class="hidden space-y-4 transition-all duration-300">
 
-        <!-- EDUCATION ITEM 1 (REPLACE WITH YOUR UNIVERSITY / DEGREE) -->
+        <!-- EDUCATION ITEM: UNIVERSITY OF GUADALAJARA -->
         <div class="cursor-card rounded-2xl p-6">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div class="flex items-start sm:items-center gap-4">
-              <div class="w-11 h-11 rounded-xl bg-cursor-elevated border border-cursor-borderLight flex items-center justify-center text-gold-400 shrink-0">
-                <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+              <div class="w-12 h-12 rounded-xl bg-cursor-elevated border border-cursor-borderLight flex items-center justify-center text-gold-400 shrink-0">
+                <i data-lucide="graduation-cap" class="w-6 h-6"></i>
               </div>
               <div>
-                <!-- REPLACE: Your Degree & University -->
-                <h3 class="text-lg font-semibold text-white">B.S. in Computer Science / Software Engineering</h3>
+                <h3 class="text-lg font-semibold text-white">Bachelor's Degree in Computer Science</h3>
                 <p class="text-sm text-neutral-400">
-                  University of Technology · <span class="font-mono text-xs text-neutral-500">Specialization in Distributed Systems</span>
+                  University of Guadalajara (UdeG) · <span class="font-mono text-xs text-neutral-500">Guadalajara, Mexico</span>
                 </p>
               </div>
             </div>
-            <!-- REPLACE: Graduation Years -->
-            <span class="font-mono text-xs text-neutral-400 bg-cursor-elevated px-3 py-1 rounded-md border border-cursor-border self-start sm:self-center">
-              2017 — 2021
+            <span class="font-mono text-xs text-gold-400 bg-gold-500/10 px-3 py-1 rounded-md border border-gold-500/20 self-start sm:self-center">
+              Graduated May 2021
             </span>
           </div>
           <p class="mt-4 pt-4 border-t border-cursor-border text-sm text-neutral-400">
-            Relevant Coursework: Data Structures &amp; Algorithms, Database Internals, Operating Systems, Computer Networks, Distributed Computing, and Software Architecture.
+            Strong academic foundation in Systems Programming (C/C++, Java), Relational Database Design, Operating Systems (Linux), Data Structures &amp; Algorithms, and Software Engineering Methodologies (Agile/Scrum).
           </p>
         </div>
 
-        <!-- EDUCATION ITEM 2 (REPLACE WITH YOUR CERTIFICATIONS) -->
-        <div class="cursor-card rounded-2xl p-6">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div class="flex items-start sm:items-center gap-4">
-              <div class="w-11 h-11 rounded-xl bg-cursor-elevated border border-cursor-borderLight flex items-center justify-center text-gold-400 shrink-0">
-                <i data-lucide="award" class="w-5 h-5"></i>
+        <!-- LANGUAGES, SOFT SKILLS & ENGINEERING INTERESTS -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="cursor-card rounded-2xl p-6 space-y-4">
+            <div class="flex items-center justify-between">
+              <h3 class="text-base font-semibold text-white">Languages &amp; Core Strengths</h3>
+              <i data-lucide="globe" class="w-4 h-4 text-gold-500"></i>
+            </div>
+            <div class="space-y-3 text-sm text-neutral-400">
+              <div class="flex items-center justify-between py-1.5 border-b border-cursor-border">
+                <span class="text-neutral-200 font-medium">English</span>
+                <span class="font-mono text-xs text-gold-400">Professional Working Proficiency (Global Teams)</span>
               </div>
-              <div>
-                <!-- REPLACE: Certification Title -->
-                <h3 class="text-lg font-semibold text-white">Cloud &amp; Backend Architecture Certifications</h3>
-                <p class="text-sm text-neutral-400">
-                  Microsoft Azure / Cloud Native Computing Foundation
-                </p>
+              <div class="flex items-center justify-between py-1.5 border-b border-cursor-border">
+                <span class="text-neutral-200 font-medium">Spanish</span>
+                <span class="font-mono text-xs text-neutral-400">Native</span>
+              </div>
+              <div class="flex flex-wrap gap-1.5 pt-2">
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-300">Problem Solving</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-300">Analytical Thinking</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-300">Proactive Ownership</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-300">Time Management</span>
               </div>
             </div>
-            <span class="font-mono text-xs text-neutral-400 bg-cursor-elevated px-3 py-1 rounded-md border border-cursor-border self-start sm:self-center">
-              2022 — 2025
-            </span>
           </div>
-          <div class="mt-4 pt-4 border-t border-cursor-border flex flex-wrap gap-2">
-            <!-- REPLACE: Certification Badges -->
-            <span class="px-3 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-300">
-              Microsoft Certified: Azure Developer Associate (AZ-204)
-            </span>
-            <span class="px-3 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-300">
-              Docker &amp; Kubernetes Microservices Architecture
-            </span>
-            <span class="px-3 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-300">
-              PostgreSQL High-Performance Tuning
-            </span>
+
+          <div class="cursor-card rounded-2xl p-6 space-y-4">
+            <div class="flex items-center justify-between">
+              <h3 class="text-base font-semibold text-white">Technical Interests &amp; Focus</h3>
+              <i data-lucide="terminal" class="w-4 h-4 text-gold-500"></i>
+            </div>
+            <p class="text-sm text-neutral-400 leading-relaxed">
+              Passionate about Free and Open Source Software (FOSS), Generative AI &amp; Model Context Protocol (MCP) tooling, Digital Privacy, Web Browsers, Automated Web Scraping, and Chess.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-300">FOSS</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-300">Gen AI &amp; Agents</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-300">Digital Privacy</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-300">Web Browsers</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-300">Web Scraping</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-300">Chess</span>
+            </div>
           </div>
         </div>
 
@@ -1042,37 +981,36 @@
     </section>
 
     <!-- =================================================================== -->
-    <!-- 5. CONTACT / FOOTER SECTION                                         -->
+    <!-- 5. CONTACT / FOOTER SECTION (No Phone Number Included)              -->
     <!-- =================================================================== -->
     <section id="contact" class="pt-8 md-reveal">
       <div class="cursor-card rounded-3xl p-8 sm:p-12 border border-cursor-borderLight relative overflow-hidden">
         <div class="max-w-2xl space-y-6">
           <div class="font-mono text-xs uppercase tracking-widest text-gold-500">
-            04 // Initiate Connection
+            04 // Initiate Connection · Guadalajara, Mexico
           </div>
           <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white">
-            Ready to scale your backend architecture?
+            Let's build resilient backend systems.
           </h2>
           <p class="text-neutral-400 text-sm sm:text-base leading-relaxed">
-            Whether you need a Senior Backend Engineer for high-concurrency microservices, database performance optimization, or greenfield system design, feel free to reach out directly.
+            Available for Senior Backend Engineering opportunities, distributed microservices architecture, legacy modernization, and AI-assisted development workflows with international teams.
           </p>
 
           <!-- Direct Contact Buttons (Turn Gold on Hover) -->
           <div class="flex flex-wrap items-center gap-3.5 pt-2">
-            <!-- REPLACE: Your real Email Address -->
-            <a href="mailto:emmanuel.corpus@example.com" class="btn-gold-primary inline-flex items-center gap-2.5 px-6 py-3 rounded-xl text-sm font-medium">
+            <a href="mailto:corpus_e@outlook.com?subject=Software%20Engineering%20Inquiry%20%E2%80%94%20Emmanuel%20Corpus" onclick="openMailWindow(event)" class="btn-gold-primary inline-flex items-center gap-2.5 px-6 py-3 rounded-xl text-sm font-medium">
               <i data-lucide="mail" class="w-4 h-4"></i>
-              <span>emmanuel.corpus@example.com</span>
+              <span>corpus_e@outlook.com</span>
             </a>
 
-            <!-- REPLACE: Your real LinkedIn URL -->
-            <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" class="btn-gold inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-medium bg-cursor-surface border border-cursor-borderLight text-neutral-200">
+            <!-- REPLACE: Update with your exact LinkedIn URL -->
+            <a href="https://www.linkedin.com/in/corpusemmanuel" target="_blank" rel="noopener noreferrer" class="btn-gold inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-medium bg-cursor-surface border border-cursor-borderLight text-neutral-200">
               <i data-lucide="linkedin" class="w-4 h-4"></i>
               <span>LinkedIn</span>
             </a>
 
-            <!-- REPLACE: Your real GitHub URL -->
-            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" class="btn-gold inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-medium bg-cursor-surface border border-cursor-borderLight text-neutral-200">
+            <!-- REPLACE: Update with your exact GitHub URL -->
+            <a href="https://github.com/corpus96" target="_blank" rel="noopener noreferrer" class="btn-gold inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-medium bg-cursor-surface border border-cursor-borderLight text-neutral-200">
               <i data-lucide="github" class="w-4 h-4"></i>
               <span>GitHub</span>
             </a>
@@ -1084,15 +1022,104 @@
   </main>
 
   <!-- ===================================================================== -->
+  <!-- FLOATING MAIL COMPOSE WINDOW (Cursor / macOS Aesthetic)               -->
+  <!-- ===================================================================== -->
+  <div id="mailModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+    <div class="cursor-card w-full max-w-lg rounded-2xl border border-cursor-borderLight shadow-2xl overflow-hidden animate-fadeIn">
+      <!-- Window Titlebar -->
+      <div class="flex items-center justify-between px-4 py-3 bg-cursor-elevated border-b border-cursor-border">
+        <div class="flex items-center gap-2">
+          <button type="button" onclick="closeMailWindow()" aria-label="Close mail window" class="w-3 h-3 rounded-full bg-red-500/80 hover:bg-red-500 transition-colors"></button>
+          <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
+          <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
+          <span class="ml-2 font-mono text-xs text-neutral-400">New Message — corpus_e@outlook.com</span>
+        </div>
+        <button type="button" onclick="closeMailWindow()" class="btn-gold p-1 rounded-md text-neutral-400 border border-transparent">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- Mail Form Body -->
+      <div class="p-6 space-y-4 bg-black/95">
+        <!-- Recipient Row -->
+        <div class="flex items-center justify-between gap-2 pb-3 border-b border-cursor-border text-xs font-mono">
+          <div class="flex items-center gap-2">
+            <span class="text-neutral-500">To:</span>
+            <span class="px-2.5 py-1 rounded bg-cursor-elevated border border-gold-500/30 text-gold-300">corpus_e@outlook.com</span>
+          </div>
+          <button type="button" onclick="copyEmailAddress(this)" class="btn-gold px-2.5 py-1 rounded border border-cursor-borderLight text-neutral-400 text-[11px]">
+            Copy Email
+          </button>
+        </div>
+
+        <!-- Subject Input -->
+        <div class="space-y-1.5">
+          <label for="mailSubject" class="block font-mono text-[11px] uppercase tracking-wider text-neutral-500">Subject</label>
+          <input
+            id="mailSubject"
+            type="text"
+            value="Software Engineering Inquiry — Emmanuel Corpus"
+            class="w-full px-3.5 py-2 rounded-lg bg-cursor-surface border border-cursor-borderLight text-sm text-white focus:outline-none focus:border-gold-500 transition-colors"
+            placeholder="Subject..."
+          />
+        </div>
+
+        <!-- Message Body -->
+        <div class="space-y-1.5">
+          <label for="mailBody" class="block font-mono text-[11px] uppercase tracking-wider text-neutral-500">Message</label>
+          <textarea
+            id="mailBody"
+            rows="4"
+            class="w-full px-3.5 py-2.5 rounded-lg bg-cursor-surface border border-cursor-borderLight text-sm text-white focus:outline-none focus:border-gold-500 transition-colors resize-none"
+            placeholder="Hi Emmanuel, I'd like to connect regarding..."
+          >Hi Emmanuel,&#10;&#10;I came across your portfolio and would like to connect with you regarding a Backend Software Engineering opportunity.</textarea>
+        </div>
+
+        <!-- Send Actions -->
+        <div class="pt-2 flex flex-wrap items-center justify-between gap-2.5">
+          <a
+            id="openMailAppBtn"
+            href="mailto:corpus_e@outlook.com?subject=Software%20Engineering%20Inquiry%20%E2%80%94%20Emmanuel%20Corpus&amp;body=Hi%20Emmanuel%2C%0D%0A%0D%0AI%20came%20across%20your%20portfolio%20and%20would%20like%20to%20connect%20with%20you%20regarding%20a%20Backend%20Software%20Engineering%20opportunity."
+            target="_top"
+            onclick="handleOpenMailApp(event)"
+            class="btn-gold-primary flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold cursor-pointer"
+          >
+            <i data-lucide="send" class="w-3.5 h-3.5"></i>
+            <span>Open Mail App</span>
+          </a>
+
+          <button
+            type="button"
+            onclick="sendMailAction('outlook')"
+            class="btn-gold inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl text-xs font-medium bg-cursor-surface border border-cursor-borderLight text-neutral-200"
+          >
+            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            <span>Outlook Web</span>
+          </button>
+
+          <button
+            type="button"
+            onclick="sendMailAction('gmail')"
+            class="btn-gold inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl text-xs font-medium bg-cursor-surface border border-cursor-borderLight text-neutral-200"
+          >
+            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            <span>Gmail</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
   <!-- FOOTER                                                                -->
   <!-- ===================================================================== -->
   <footer class="relative z-10 border-t border-cursor-border bg-black/80 backdrop-blur-md">
     <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-500 font-mono">
       <div>
-        &copy; <span id="currentYear"></span> Emmanuel Corpus. All rights reserved.
+        &copy; <span id="currentYear"></span> Emmanuel Corpus · Guadalajara, Mexico. All rights reserved.
       </div>
       <div class="flex items-center gap-6">
-        <span>Built with Precision · Pure Black Theme</span>
+        <a href="mailto:corpus_e@outlook.com" onclick="openMailWindow(event)" class="hover:text-gold-400 transition-colors">corpus_e@outlook.com</a>
         <a href="#hero" class="btn-gold px-2.5 py-1 rounded border border-cursor-border text-neutral-400">
           Top &uarr;
         </a>
@@ -1109,6 +1136,92 @@
 
     // Set copyright year dynamically
     document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // =====================================================================
+    // Mail Window Handler (Compose Window + Native Mailto Sync)
+    // =====================================================================
+    function buildMailtoHref() {
+      const to = 'corpus_e@outlook.com';
+      const rawSubject = document.getElementById('mailSubject').value || 'Software Engineering Inquiry — Emmanuel Corpus';
+      const rawBody = (document.getElementById('mailBody').value || '').replace(/\r?\n/g, '\r\n');
+      const subject = encodeURIComponent(rawSubject);
+      const body = encodeURIComponent(rawBody);
+      return `mailto:${to}?subject=${subject}&body=${body}`;
+    }
+
+    function syncMailtoLink() {
+      const mailBtn = document.getElementById('openMailAppBtn');
+      if (mailBtn) {
+        mailBtn.setAttribute('href', buildMailtoHref());
+      }
+    }
+
+    document.getElementById('mailSubject').addEventListener('input', syncMailtoLink);
+    document.getElementById('mailBody').addEventListener('input', syncMailtoLink);
+
+    function openMailWindow(event) {
+      if (event) {
+        event.preventDefault();
+      }
+      syncMailtoLink();
+      const modal = document.getElementById('mailModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeMailWindow() {
+      const modal = document.getElementById('mailModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function handleOpenMailApp() {
+      // Refresh href right before the browser follows the native <a> mailto link
+      syncMailtoLink();
+      setTimeout(() => {
+        closeMailWindow();
+      }, 180);
+    }
+
+    function sendMailAction(provider) {
+      const to = 'corpus_e@outlook.com';
+      const subject = encodeURIComponent(document.getElementById('mailSubject').value || '');
+      const body = encodeURIComponent((document.getElementById('mailBody').value || '').replace(/\r?\n/g, '\r\n'));
+
+      if (provider === 'outlook') {
+        window.open(
+          `https://outlook.live.com/mail/0/deeplink/compose?to=${to}&subject=${subject}&body=${body}`,
+          'mailComposeWindow',
+          'width=760,height=640,menubar=no,toolbar=no,location=no,status=no'
+        );
+      } else if (provider === 'gmail') {
+        window.open(
+          `https://mail.google.com/mail/?view=cm&fs=1&to=${to}&su=${subject}&body=${body}`,
+          'mailComposeWindow',
+          'width=760,height=640,menubar=no,toolbar=no,location=no,status=no'
+        );
+      } else {
+        window.location.href = buildMailtoHref();
+      }
+      closeMailWindow();
+    }
+
+    function copyEmailAddress(btn) {
+      navigator.clipboard.writeText('corpus_e@outlook.com');
+      const originalText = btn.textContent;
+      btn.textContent = 'Copied!';
+      setTimeout(() => {
+        btn.textContent = originalText;
+      }, 1800);
+    }
+
+    // Close modal when clicking backdrop or pressing Escape
+    document.getElementById('mailModal').addEventListener('click', (e) => {
+      if (e.target.id === 'mailModal') closeMailWindow();
+    });
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMailWindow();
+    });
 
     // Mobile Menu Toggle
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
@@ -1207,9 +1320,9 @@
       let height = 0;
       let dpr = Math.min(window.devicePixelRatio || 1, 2);
 
-      // Generate structured 3D volumetric point-cloud cube (points along faces, edges, and lattice interior)
+      // Generate structured 3D volumetric point-cloud cube
       const points = [];
-      const gridPerAxis = 9; // 9x9x9 volumetric lattice = 729 points
+      const gridPerAxis = 9;
       for (let ix = 0; ix < gridPerAxis; ix++) {
         for (let iy = 0; iy < gridPerAxis; iy++) {
           for (let iz = 0; iz < gridPerAxis; iz++) {
@@ -1217,7 +1330,6 @@
             const y = (iy / (gridPerAxis - 1)) * 2 - 1;
             const z = (iz / (gridPerAxis - 1)) * 2 - 1;
 
-            // Keep outer shell + main structural lattice planes so the cube reads clearly and deeply
             const isSurface =
               Math.abs(x) === 1 ||
               Math.abs(y) === 1 ||
@@ -1255,7 +1367,6 @@
       window.addEventListener('resize', resizeCanvas);
       resizeCanvas();
 
-      // Rotation angles & subtle interactive mouse parallax
       let angleX = 0.45;
       let angleY = 0.65;
       let angleZ = 0.15;
@@ -1272,7 +1383,6 @@
       function render() {
         ctx.clearRect(0, 0, width, height);
 
-        // Slow, continuous, fluid rotation
         angleY += 0.0022;
         angleX += 0.0013;
         angleZ += 0.0007;
@@ -1288,7 +1398,6 @@
         const cosY = Math.cos(ry), sinY = Math.sin(ry);
         const cosZ = Math.cos(rz), sinZ = Math.sin(rz);
 
-        // Large cube scale centered in the viewport
         const cubeRadius = Math.min(width, height) * 0.34;
         const fov = 4.2;
         const cx = width * 0.5;
@@ -1317,8 +1426,7 @@
           const screenX = cx + x3 * cubeRadius * perspective * 1.65;
           const screenY = cy + y3 * cubeRadius * perspective * 1.65;
 
-          // Depth-based alpha and size
-          const depthNormalized = (1 - (z3 + 1.7) / 3.4); // 0 (far) to 1 (near)
+          const depthNormalized = (1 - (z3 + 1.7) / 3.4);
           const alpha = Math.max(0.08, Math.min(0.85, depthNormalized * 0.72));
           const radius = Math.max(0.9, (p.isEdge ? 2.2 : 1.55) * perspective * 1.45);
 
