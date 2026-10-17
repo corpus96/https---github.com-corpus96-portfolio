@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- ===================================================================== -->
+  <!-- REPLACE: Page Title & SEO Meta Description                            -->
+  <!-- ===================================================================== -->
+  <title>Emmanuel Corpus — Software Engineer | Backend Software Engineer </title>
+  <meta name="description" content="Portfolio of Emmanuel Corpus, Software Engineer specializing in high-performance backend systems, .NET architecture, distributed databases, and cloud infrastructure." />
+
+  <!-- Google Fonts: Inter (UI) & JetBrains Mono (Engineering / Metrics) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS v3 via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons via CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            cursor: {
+              bg: '#000000',
+              surface: '#0A0A0A',
+              card: '#0E0E0E',
+              elevated: '#141414',
+              border: '#1F1F1F',
+              borderLight: '#2A2A2A',
+              muted: '#888888',
+              subtle: '#555555'
+            },
+            gold: {
+              300: '#FDE68A',
+              400: '#FBBF24',
+              500: '#D4AF37',
+              600: '#B8860B',
+            }
+          },
+          transitionTimingFunction: {
+            // Google Material Design 3 standard & emphasized easing curves
+            'md-standard': 'cubic-bezier(0.2, 0.0, 0, 1.0)',
+            'md-emphasized': 'cubic-bezier(0.2, 0.0, 0, 1.0)',
+            'md-decelerate': 'cubic-bezier(0.05, 0.7, 0.1, 1.0)',
+            'md-accelerate': 'cubic-bezier(0.3, 0.0, 0.8, 0.15)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* ===================================================================== */
+    /* Base Cursor-like Pure Black Aesthetics & Material Design Motion       */
+    /* ===================================================================== */
+    :root {
+      color-scheme: dark;
+    }
+
+    body {
+      background-color: #000000;
+      color: #F5F5F5;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      selection-background-color: rgba(212, 175, 55, 0.25);
+    }
+
+    ::selection {
+      background: rgba(212, 175, 55, 0.25);
+      color: #FDE68A;
+    }
+
+    /* Subtle noise & radial vignette overlay matching Cursor's aesthetic */
+    .cursor-vignette {
+      background: radial-gradient(circle at 50% 45%, rgba(20, 20, 20, 0.15) 0%, rgba(0, 0, 0, 0.82) 75%, #000000 100%);
+    }
+
+    /* ===================================================================== */
+    /* Gold Hover Button System + Material Design Ripple & Elevation         */
+    /* ===================================================================== */
+    .btn-gold {
+      position: relative;
+      overflow: hidden;
+      transition:
+        color 320ms cubic-bezier(0.2, 0, 0, 1),
+        background-color 320ms cubic-bezier(0.2, 0, 0, 1),
+        border-color 320ms cubic-bezier(0.2, 0, 0, 1),
+        box-shadow 320ms cubic-bezier(0.2, 0, 0, 1),
+        transform 280ms cubic-bezier(0.2, 0, 0, 1);
+    }
+
+    .btn-gold:hover {
+      border-color: #D4AF37 !important;
+      color: #FDE68A !important;
+      background-color: rgba(212, 175, 55, 0.12) !important;
+      box-shadow: 0 0 24px -4px rgba(212, 175, 55, 0.35), inset 0 1px 0 0 rgba(253, 230, 138, 0.25);
+      transform: translateY(-2px);
+    }
+
+    .btn-gold:active {
+      transform: translateY(0px) scale(0.985);
+    }
+
+    /* Primary Filled Button that turns Rich Metallic Gold on Hover */
+    .btn-gold-primary {
+      position: relative;
+      overflow: hidden;
+      background-color: #F5F5F5;
+      color: #000000;
+      border: 1px solid #FFFFFF;
+      transition:
+        color 320ms cubic-bezier(0.2, 0, 0, 1),
+        background-color 320ms cubic-bezier(0.2, 0, 0, 1),
+        border-color 320ms cubic-bezier(0.2, 0, 0, 1),
+        box-shadow 320ms cubic-bezier(0.2, 0, 0, 1),
+        transform 280ms cubic-bezier(0.2, 0, 0, 1);
+    }
+
+    .btn-gold-primary:hover {
+      background: linear-gradient(135deg, #FDE68A 0%, #D4AF37 55%, #B8860B 100%) !important;
+      border-color: #FDE68A !important;
+      color: #000000 !important;
+      box-shadow: 0 8px 28px -4px rgba(212, 175, 55, 0.55);
+      transform: translateY(-2px);
+    }
+
+    .btn-gold-primary:active {
+      transform: translateY(0px) scale(0.985);
+    }
+
+    /* Company Logos inside button: dark gray by default, subtle gold tint on button hover */
+    .company-logo-strip svg {
+      color: #4A4A4A;
+      transition: color 320ms cubic-bezier(0.2, 0, 0, 1), transform 320ms cubic-bezier(0.2, 0, 0, 1);
+    }
+    .btn-gold:hover .company-logo-strip svg {
+      color: #C5A03F;
+    }
+
+    /* Material Design Ripple Effect */
+    .md-ripple-wave {
+      position: absolute;
+      border-radius: 50%;
+      transform: scale(0);
+      animation: md-ripple 650ms cubic-bezier(0.05, 0.7, 0.1, 1.0);
+      background-color: rgba(253, 230, 138, 0.32);
+      pointer-events: none;
+    }
+
+    @keyframes md-ripple {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+
+    /* ===================================================================== */
+    /* Horizontal Slow Marquee for Technical Stack Cards                     */
+    /* ===================================================================== */
+    @keyframes marquee-left {
+      0% {
+        transform: translate3d(0%, 0, 0);
+      }
+      100% {
+        transform: translate3d(-50%, 0, 0);
+      }
+    }
+
+    @keyframes marquee-right {
+      0% {
+        transform: translate3d(-50%, 0, 0);
+      }
+      100% {
+        transform: translate3d(0%, 0, 0);
+      }
+    }
+
+    .animate-marquee-slow {
+      display: flex;
+      width: max-content;
+      animation: marquee-left 55s linear infinite;
+    }
+
+    .animate-marquee-reverse-slow {
+      display: flex;
+      width: max-content;
+      animation: marquee-right 62s linear infinite;
+    }
+
+    .marquee-wrapper:hover .animate-marquee-slow,
+    .marquee-wrapper:hover .animate-marquee-reverse-slow {
+      animation-play-state: paused;
+    }
+
+    /* Edge fade mask for horizontal marquee */
+    .marquee-mask {
+      mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+    }
+
+    /* ===================================================================== */
+    /* Material Design 3 Scroll Reveal & Card Surface Elevation              */
+    /* ===================================================================== */
+    .md-reveal {
+      opacity: 0;
+      transform: translateY(28px) scale(0.985);
+      transition:
+        opacity 700ms cubic-bezier(0.05, 0.7, 0.1, 1.0),
+        transform 700ms cubic-bezier(0.05, 0.7, 0.1, 1.0);
+    }
+
+    .md-reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .cursor-card {
+      background: rgba(12, 12, 12, 0.78);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid #1F1F1F;
+      transition:
+        border-color 350ms cubic-bezier(0.2, 0, 0, 1),
+        transform 350ms cubic-bezier(0.2, 0, 0, 1),
+        box-shadow 350ms cubic-bezier(0.2, 0, 0, 1),
+        background-color 350ms cubic-bezier(0.2, 0, 0, 1);
+    }
+
+    .cursor-card:hover {
+      border-color: rgba(212, 175, 55, 0.45);
+      background: rgba(18, 18, 18, 0.88);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.9), 0 0 25px -8px rgba(212, 175, 55, 0.15);
+    }
+
+    /* Smooth accordion transition for Experience/Education details */
+    .accordion-content {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 400ms cubic-bezier(0.2, 0, 0, 1), opacity 350ms cubic-bezier(0.2, 0, 0, 1);
+      opacity: 0;
+    }
+
+    .accordion-content.open {
+      grid-template-rows: 1fr;
+      opacity: 1;
+    }
+
+    .accordion-inner {
+      overflow: hidden;
+    }
+
+    /* Custom subtle scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #000000;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #222222;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #D4AF37;
+    }
+  </style>
+</head>
+
+<body class="relative min-h-screen antialiased selection:bg-gold-500/20 selection:text-gold-300">
+
+  <!-- ===================================================================== -->
+  <!-- BACKGROUND: Large Rotating 3D Point-Cloud Cube in Center              -->
+  <!-- ===================================================================== -->
+  <div class="fixed inset-0 z-0 pointer-events-none flex items-center justify-center overflow-hidden">
+    <canvas id="pointCubeCanvas" class="w-full h-full opacity-85"></canvas>
+    <div class="absolute inset-0 cursor-vignette"></div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- STICKY MINIMALIST NAVIGATION BAR (Cursor Aesthetic)                   -->
+  <!-- ===================================================================== -->
+  <header class="fixed top-0 inset-x-0 z-50 border-b border-cursor-border/80 bg-black/75 backdrop-blur-md">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="#hero" class="flex items-center gap-3 group focus:outline-none">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 ring-4 ring-emerald-500/15 group-hover:bg-gold-400 group-hover:ring-gold-400/20 transition-all duration-300"></span>
+        <span class="font-mono text-sm tracking-tight text-neutral-200 font-medium group-hover:text-gold-300 transition-colors">
+          emmanuel.corpus<span class="text-neutral-600">()</span>
+        </span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-1">
+        <a href="#stack" class="btn-gold px-3.5 py-1.5 rounded-lg text-xs font-medium text-neutral-400 border border-transparent">
+          Tech Stack
+        </a>
+        <a href="#projects" class="btn-gold px-3.5 py-1.5 rounded-lg text-xs font-medium text-neutral-400 border border-transparent">
+          Projects
+        </a>
+        <button type="button" onclick="navigateToTrajectory('experience')" class="btn-gold px-3.5 py-1.5 rounded-lg text-xs font-medium text-neutral-400 border border-transparent">
+          Experience
+        </button>
+        <button type="button" onclick="navigateToTrajectory('education')" class="btn-gold px-3.5 py-1.5 rounded-lg text-xs font-medium text-neutral-400 border border-transparent">
+          Education
+        </button>
+        <a href="#contact" class="btn-gold ml-2 px-4 py-1.5 rounded-lg text-xs font-medium text-neutral-200 border border-cursor-borderLight bg-cursor-surface">
+          Contact
+        </a>
+      </nav>
+
+      <!-- Mobile menu button -->
+      <button id="mobileMenuBtn" aria-label="Toggle Menu" class="md:hidden btn-gold p-2 rounded-lg border border-cursor-border text-neutral-300">
+        <i data-lucide="menu" class="w-4 h-4"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileMenu" class="hidden md:hidden border-b border-cursor-border bg-black/95 px-6 py-4 space-y-2">
+      <a href="#stack" class="mobile-nav-link block py-2 text-sm text-neutral-300 hover:text-gold-300">Tech Stack</a>
+      <a href="#projects" class="mobile-nav-link block py-2 text-sm text-neutral-300 hover:text-gold-300">Featured Projects</a>
+      <button type="button" onclick="navigateToTrajectory('experience')" class="mobile-nav-link block w-full text-left py-2 text-sm text-neutral-300 hover:text-gold-300">Work Experience</button>
+      <button type="button" onclick="navigateToTrajectory('education')" class="mobile-nav-link block w-full text-left py-2 text-sm text-neutral-300 hover:text-gold-300">Education History</button>
+      <a href="#contact" class="mobile-nav-link block py-2 text-sm text-gold-400 font-medium">Contact</a>
+    </div>
+  </header>
+
+  <!-- ===================================================================== -->
+  <!-- MAIN CONTENT                                                          -->
+  <!-- ===================================================================== -->
+  <main class="relative z-10 max-w-6xl mx-auto px-6 pt-28 pb-24 space-y-32">
+
+    <!-- =================================================================== -->
+    <!-- 1. HERO SECTION                                                     -->
+    <!-- =================================================================== -->
+    <section id="hero" class="min-h-[82vh] flex flex-col justify-center pt-6">
+      <div class="max-w-3xl space-y-7 md-reveal">
+
+        <!-- Status Pill -->
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-cursor-borderLight bg-cursor-surface/90 backdrop-blur-md">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-gold-500"></span>
+          </span>
+          <!-- REPLACE: Availability or specialization badge text -->
+          <span class="font-mono text-xs text-neutral-300 tracking-wide">
+            BACKEND ARCHITECTURE · DISTRIBUTED SYSTEMS · .NET &amp; CLOUD
+          </span>
+        </div>
+
+        <!-- Name & Role -->
+        <div class="space-y-3">
+          <h1 class="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white leading-[1.06]">
+            <!-- REPLACE: Your Name -->
+            Emmanuel Corpus
+          </h1>
+          <p class="text-2xl sm:text-3xl font-medium text-neutral-400 tracking-tight flex items-center gap-3">
+            <!-- REPLACE: Your Role -->
+            <span>Software Engineer</span>
+            <span class="hidden sm:inline-block text-cursor-borderLight font-light">/</span>
+            <span class="hidden sm:inline-block font-mono text-base text-neutral-500">Backend Specialist</span>
+          </p>
+        </div>
+
+        <!-- Impact Description (1-2 sentences focused on performance, architecture, and problem-solving) -->
+        <!-- REPLACE: Your personal impact statement -->
+        <p class="text-base sm:text-lg text-neutral-300 leading-relaxed max-w-2xl font-normal">
+          Architecting fault-tolerant backend systems, high-throughput APIs, and distributed data pipelines that scale under heavy concurrency. Focused on transforming complex domain bottlenecks into clean, observable, sub-millisecond production architectures.
+        </p>
+
+        <!-- Quick Action Buttons: GitHub, LinkedIn, Contact -->
+        <div class="flex flex-wrap items-center gap-3.5 pt-1">
+          <!-- REPLACE: Your real Email or Contact link -->
+          <a href="#contact" class="btn-gold-primary inline-flex items-center gap-2.5 px-5 py-2.5 rounded-lg text-sm font-medium">
+            <i data-lucide="terminal" class="w-4 h-4"></i>
+            <span>Contact Me</span>
+            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+          </a>
+
+          <!-- REPLACE: Your real GitHub profile URL -->
+          <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" class="btn-gold inline-flex items-center gap-2.5 px-5 py-2.5 rounded-lg text-sm font-medium bg-cursor-surface border border-cursor-borderLight text-neutral-200">
+            <i data-lucide="github" class="w-4 h-4"></i>
+            <span>GitHub</span>
+          </a>
+
+          <!-- REPLACE: Your real LinkedIn profile URL -->
+          <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" class="btn-gold inline-flex items-center gap-2.5 px-5 py-2.5 rounded-lg text-sm font-medium bg-cursor-surface border border-cursor-borderLight text-neutral-200">
+            <i data-lucide="linkedin" class="w-4 h-4"></i>
+            <span>LinkedIn</span>
+          </a>
+        </div>
+
+        <!-- Divider -->
+        <div class="pt-4 border-t border-cursor-border/80 max-w-2xl"></div>
+
+        <!-- Trajectory Navigation Buttons Below Description (Work History with dark-gray company logos + Education History) -->
+        <div class="space-y-3">
+          <p class="font-mono text-[11px] uppercase tracking-widest text-neutral-500">
+            Explore Verified Trajectory
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
+            <!-- Button 1: Work History with Dark-Gray Company Logos -->
+            <button
+              type="button"
+              onclick="navigateToTrajectory('experience')"
+              class="btn-gold group flex items-center justify-between sm:justify-start gap-4 px-4 py-3 rounded-xl bg-cursor-surface/90 border border-cursor-borderLight text-left"
+            >
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-cursor-elevated border border-cursor-border flex items-center justify-center text-neutral-400 group-hover:text-gold-300 transition-colors">
+                  <i data-lucide="briefcase" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <div class="text-xs font-semibold text-neutral-200 group-hover:text-gold-300 flex items-center gap-1.5">
+                    <span>Work History</span>
+                    <i data-lucide="chevron-down" class="w-3.5 h-3.5 opacity-70"></i>
+                  </div>
+                  <div class="text-[11px] text-neutral-500 font-mono">3 Roles · Enterprise Systems</div>
+                </div>
+              </div>
+
+              <!-- Dark-gray monochrome company logos strip (REPLACE with your former employers' SVG logos) -->
+              <div class="company-logo-strip flex items-center gap-3 pl-3 border-l border-cursor-border" title="Previous Companies">
+                <!-- Company 1 Logo (Dark Gray Monochrome SVG) -->
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-label="FinTech Core">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zm0 7.5l-6-3 6-3 6 3-6 3zm0 2.5l-10-5v10l10 5 10-5V7l-10 5z"/>
+                </svg>
+                <!-- Company 2 Logo (Dark Gray Monochrome SVG) -->
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-label="CloudScale Systems">
+                  <path d="M4 4h7v7H4V4zm9 0h7v7h-7V4zM4 13h7v7H4v-7zm9 3.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
+                </svg>
+                <!-- Company 3 Logo (Dark Gray Monochrome SVG) -->
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-label="DataPulse Corp">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                </svg>
+              </div>
+            </button>
+
+            <!-- Button 2: Education History -->
+            <button
+              type="button"
+              onclick="navigateToTrajectory('education')"
+              class="btn-gold group flex items-center justify-between sm:justify-start gap-3.5 px-4 py-3 rounded-xl bg-cursor-surface/90 border border-cursor-borderLight text-left"
+            >
+              <div class="w-8 h-8 rounded-lg bg-cursor-elevated border border-cursor-border flex items-center justify-center text-neutral-400 group-hover:text-gold-300 transition-colors">
+                <i data-lucide="graduation-cap" class="w-4 h-4"></i>
+              </div>
+              <div class="pr-1">
+                <div class="text-xs font-semibold text-neutral-200 group-hover:text-gold-300 flex items-center gap-1.5">
+                  <span>Education History</span>
+                  <i data-lucide="chevron-down" class="w-3.5 h-3.5 opacity-70"></i>
+                </div>
+                <div class="text-[11px] text-neutral-500 font-mono">B.S. Computer Science &amp; Certs</div>
+              </div>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- 2. TECHNICAL STACK / SKILLS (Slow Horizontal Marquee Cards)         -->
+    <!-- =================================================================== -->
+    <section id="stack" class="space-y-8 md-reveal">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div>
+          <div class="font-mono text-xs uppercase tracking-widest text-gold-500 mb-2">
+            01 // Core Stack &amp; Infrastructure
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-white">
+            Technical Stack &amp; Architecture
+          </h2>
+        </div>
+        <p class="text-xs font-mono text-neutral-500">
+          Hover over the stream to pause inspection
+        </p>
+      </div>
+
+      <!-- Horizontal Moving Stream Wrapper -->
+      <div class="marquee-wrapper marquee-mask relative overflow-hidden py-3 space-y-5">
+
+        <!-- Row 1: Moving Left Slowly (Category Cards) -->
+        <div class="animate-marquee-slow gap-5">
+          <!-- Set A (Original) -->
+          <div class="flex items-stretch gap-5 pr-5">
+            <!-- Category 1: Languages & Runtimes -->
+            <!-- REPLACE: Customize your languages and frameworks -->
+            <div class="cursor-card w-[340px] p-5 rounded-xl flex flex-col justify-between shrink-0">
+              <div class="flex items-center justify-between mb-4">
+                <span class="font-mono text-xs uppercase tracking-wider text-neutral-400">Languages &amp; Core</span>
+                <i data-lucide="code-2" class="w-4 h-4 text-gold-500"></i>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">C# 12</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">.NET 8 / Core</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">ASP.NET Core</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">SQL / T-SQL</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">TypeScript</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Python</span>
+              </div>
+            </div>
+
+            <!-- Category 2: Databases & Caching -->
+            <!-- REPLACE: Customize your databases -->
+            <div class="cursor-card w-[340px] p-5 rounded-xl flex flex-col justify-between shrink-0">
+              <div class="flex items-center justify-between mb-4">
+                <span class="font-mono text-xs uppercase tracking-wider text-neutral-400">Databases &amp; Storage</span>
+                <i data-lucide="database" class="w-4 h-4 text-gold-500"></i>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">PostgreSQL</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Redis (Streams/Cache)</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">SQL Server</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Entity Framework Core</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Dapper ORM</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">MongoDB</span>
+              </div>
+            </div>
+
+            <!-- Category 3: DevOps & Cloud Infrastructure -->
+            <!-- REPLACE: Customize your DevOps tools -->
+            <div class="cursor-card w-[340px] p-5 rounded-xl flex flex-col justify-between shrink-0">
+              <div class="flex items-center justify-between mb-4">
+                <span class="font-mono text-xs uppercase tracking-wider text-neutral-400">DevOps &amp; Tooling</span>
+                <i data-lucide="container" class="w-4 h-4 text-gold-500"></i>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Docker</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Kubernetes</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">GitHub Actions CI/CD</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Git</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Azure / AWS</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">OpenTelemetry</span>
+              </div>
+            </div>
+
+            <!-- Category 4: Architecture & Patterns -->
+            <!-- REPLACE: Customize your architectural skills -->
+            <div class="cursor-card w-[340px] p-5 rounded-xl flex flex-col justify-between shrink-0">
+              <div class="flex items-center justify-between mb-4">
+                <span class="font-mono text-xs uppercase tracking-wider text-neutral-400">System Architecture</span>
+                <i data-lucide="network" class="w-4 h-4 text-gold-500"></i>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Microservices</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">RESTful APIs</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">gRPC</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">RabbitMQ / Kafka</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">DDD &amp; Clean Arch</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">CQRS / Event-Driven</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Set B (Cloned for seamless infinite horizontal loop) -->
+          <div class="flex items-stretch gap-5 pr-5" aria-hidden="true">
+            <div class="cursor-card w-[340px] p-5 rounded-xl flex flex-col justify-between shrink-0">
+              <div class="flex items-center justify-between mb-4">
+                <span class="font-mono text-xs uppercase tracking-wider text-neutral-400">Languages &amp; Core</span>
+                <i data-lucide="code-2" class="w-4 h-4 text-gold-500"></i>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">C# 12</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">.NET 8 / Core</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">ASP.NET Core</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">SQL / T-SQL</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">TypeScript</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Python</span>
+              </div>
+            </div>
+
+            <div class="cursor-card w-[340px] p-5 rounded-xl flex flex-col justify-between shrink-0">
+              <div class="flex items-center justify-between mb-4">
+                <span class="font-mono text-xs uppercase tracking-wider text-neutral-400">Databases &amp; Storage</span>
+                <i data-lucide="database" class="w-4 h-4 text-gold-500"></i>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">PostgreSQL</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Redis (Streams/Cache)</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">SQL Server</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Entity Framework Core</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Dapper ORM</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">MongoDB</span>
+              </div>
+            </div>
+
+            <div class="cursor-card w-[340px] p-5 rounded-xl flex flex-col justify-between shrink-0">
+              <div class="flex items-center justify-between mb-4">
+                <span class="font-mono text-xs uppercase tracking-wider text-neutral-400">DevOps &amp; Tooling</span>
+                <i data-lucide="container" class="w-4 h-4 text-gold-500"></i>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Docker</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Kubernetes</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">GitHub Actions CI/CD</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Git</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Azure / AWS</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">OpenTelemetry</span>
+              </div>
+            </div>
+
+            <div class="cursor-card w-[340px] p-5 rounded-xl flex flex-col justify-between shrink-0">
+              <div class="flex items-center justify-between mb-4">
+                <span class="font-mono text-xs uppercase tracking-wider text-neutral-400">System Architecture</span>
+                <i data-lucide="network" class="w-4 h-4 text-gold-500"></i>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">Microservices</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">RESTful APIs</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">gRPC</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">RabbitMQ / Kafka</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">DDD &amp; Clean Arch</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-200">CQRS / Event-Driven</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- 3. FEATURED PROJECTS (3 Technical Challenge Cards)                  -->
+    <!-- =================================================================== -->
+    <section id="projects" class="space-y-10 md-reveal">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div>
+          <div class="font-mono text-xs uppercase tracking-widest text-gold-500 mb-2">
+            02 // Production Engineering
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-white">
+            Featured Backend Projects
+          </h2>
+        </div>
+        <p class="text-sm text-neutral-400 max-w-md">
+           Architectural deep-dives focused on throughput optimization, data consistency, and resilient distributed workflows.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+        <!-- =============================================================== -->
+        <!-- PROJECT CARD 1 — REPLACE WITH YOUR REAL PROJECT #1              -->
+        <!-- =============================================================== -->
+        <article class="cursor-card rounded-2xl p-6 flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="font-mono text-xs text-gold-400 px-2.5 py-1 rounded-md bg-gold-500/10 border border-gold-500/20">
+                99.99% Uptime · 12k req/s
+              </span>
+              <i data-lucide="cpu" class="w-5 h-5 text-neutral-500"></i>
+            </div>
+
+            <!-- REPLACE: Project 1 Title -->
+            <h3 class="text-xl font-semibold text-white tracking-tight">
+              Distributed Payment Ledger &amp; Idempotency Engine
+            </h3>
+
+            <!-- REPLACE: Project 1 Technical Challenge Description -->
+            <p class="text-sm text-neutral-400 leading-relaxed">
+              Eliminated double-charging race conditions during peak checkout bursts by designing a distributed lock and idempotency-key middleware in <span class="text-neutral-200">.NET 8</span> backed by <span class="text-neutral-200">Redis Lua scripts</span> and transactional outbox patterns over <span class="text-neutral-200">PostgreSQL</span>. Reduced p99 latency by <span class="text-neutral-200 font-mono">64%</span>.
+            </p>
+          </div>
+
+          <div class="space-y-5 pt-2">
+            <!-- REPLACE: Project 1 Tech Tags -->
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-cursor-elevated text-neutral-300 border border-cursor-border">C# / .NET 8</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-cursor-elevated text-neutral-300 border border-cursor-border">PostgreSQL</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-cursor-elevated text-neutral-300 border border-cursor-border">Redis</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-cursor-elevated text-neutral-300 border border-cursor-border">RabbitMQ</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-cursor-elevated text-neutral-300 border border-cursor-border">Docker</span>
+            </div>
+
+            <!-- REPLACE: Project 1 Repository & Documentation Links -->
+            <div class="flex items-center gap-3 pt-3 border-t border-cursor-border">
+              <a href="https://github.com/yourusername/project-1" target="_blank" rel="noopener noreferrer" class="btn-gold flex-1 inline-flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-medium bg-cursor-surface border border-cursor-borderLight text-neutral-200">
+                <i data-lucide="github" class="w-3.5 h-3.5"></i>
+                <span>View Repository</span>
+              </a>
+              <a href="https://github.com/yourusername/project-1#readme" target="_blank" rel="noopener noreferrer" class="btn-gold flex-1 inline-flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-medium bg-cursor-surface border border-cursor-borderLight text-neutral-200">
+                <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
+                <span>Documentation</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- =============================================================== -->
+        <!-- PROJECT CARD 2 — REPLACE WITH YOUR REAL PROJECT #2              -->
+        <!-- =============================================================== -->
+        <article class="cursor-card rounded-2xl p-6 flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="font-mono text-xs text-gold-400 px-2.5 py-1 rounded-md bg-gold-500/10 border border-gold-500/20">
+                -78% Query Time · CQRS
+              </span>
+              <i data-lucide="layers" class="w-5 h-5 text-neutral-500"></i>
+            </div>
+
+            <!-- REPLACE: Project 2 Title -->
+            <h3 class="text-xl font-semibold text-white tracking-tight">
+              High-Throughput Telemetry &amp; Event Ingestion Pipeline
+            </h3>
+
+            <!-- REPLACE: Project 2 Technical Challenge Description -->
+            <p class="text-sm text-neutral-400 leading-relaxed">
+              Refactored a monolithic synchronous reporting API into an event-driven microservice architecture using <span class="text-neutral-200">gRPC</span>, <span class="text-neutral-200">System.Threading.Channels</span>, and partitioned PostgreSQL time-series tables. Sustained <span class="text-neutral-200 font-mono">50,000+ events/min</span> with zero memory leaks.
+            </p>
+          </div>
+
+          <div class="space-y-5 pt-2">
+            <!-- REPLACE: Project 2 Tech Tags -->
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-cursor-elevated text-neutral-300 border border-cursor-border">ASP.NET Core</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-cursor-elevated text-neutral-300 border border-cursor-border">gRPC</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-cursor-elevated text-neutral-300 border border-cursor-border">Dapper</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-cursor-elevated text-neutral-300 border border-cursor-border">PostgreSQL</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-cursor-elevated text-neutral-300 border border-cursor-border">OpenTelemetry</span>
+            </div>
+
+            <!-- REPLACE: Project 2 Repository & Documentation Links -->
+            <div class="flex items-center gap-3 pt-3 border-t border-cursor-border">
+              <a href="https://github.com/yourusername/project-2" target="_blank" rel="noopener noreferrer" class="btn-gold flex-1 inline-flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-medium bg-cursor-surface border border-cursor-borderLight text-neutral-200">
+                <i data-lucide="github" class="w-3.5 h-3.5"></i>
+                <span>View Repository</span>
+              </a>
+              <a href="https://github.com/yourusername/project-2#readme" target="_blank" rel="noopener noreferrer" class="btn-gold flex-1 inline-flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-medium bg-cursor-surface border border-cursor-borderLight text-neutral-200">
+                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                <span>Live Demo</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- =============================================================== -->
+        <!-- PROJECT CARD 3 — REPLACE WITH YOUR REAL PROJECT #3              -->
+        <!-- =============================================================== -->
+        <article class="cursor-card rounded-2xl p-6 flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="font-mono text-xs text-gold-400 px-2.5 py-1 rounded-md bg-gold-500/10 border border-gold-500/20">
+                Sub-5ms Auth · Zero-Trust
+              </span>
+              <i data-lucide="shield-check" class="w-5 h-5 text-neutral-500"></i>
+            </div>
+
+            <!-- REPLACE: Project 3 Title -->
+            <h3 class="text-xl font-semibold text-white tracking-tight">
+              Multi-Tenant API Gateway &amp; Distributed Rate Limiter
+            </h3>
+
+            <!-- REPLACE: Project 3 Technical Challenge Description -->
+            <p class="text-sm text-neutral-400 leading-relaxed">
+              Engineered a reverse-proxy gateway utilizing <span class="text-neutral-200">YARP</span> and sliding-window rate-limiting algorithms in <span class="text-neutral-200">Redis Cluster</span>. Isolated noisy multi-tenant workloads, automated JWT key rotation, and cut downstream database load by <span class="text-neutral-200 font-mono">45%</span>.
+            </p>
+          </div>
+
+          <div class="space-y-5 pt-2">
+            <!-- REPLACE: Project 3 Tech Tags -->
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-cursor-elevated text-neutral-300 border border-cursor-border">.NET 8 / YARP</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-cursor-elevated text-neutral-300 border border-cursor-border">Redis Cluster</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-cursor-elevated text-neutral-300 border border-cursor-border">OAuth2 / JWT</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-cursor-elevated text-neutral-300 border border-cursor-border">Docker Compose</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-cursor-elevated text-neutral-300 border border-cursor-border">GitHub Actions</span>
+            </div>
+
+            <!-- REPLACE: Project 3 Repository & Documentation Links -->
+            <div class="flex items-center gap-3 pt-3 border-t border-cursor-border">
+              <a href="https://github.com/yourusername/project-3" target="_blank" rel="noopener noreferrer" class="btn-gold flex-1 inline-flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-medium bg-cursor-surface border border-cursor-borderLight text-neutral-200">
+                <i data-lucide="github" class="w-3.5 h-3.5"></i>
+                <span>View Repository</span>
+              </a>
+              <a href="https://github.com/yourusername/project-3#readme" target="_blank" rel="noopener noreferrer" class="btn-gold flex-1 inline-flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-medium bg-cursor-surface border border-cursor-borderLight text-neutral-200">
+                <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
+                <span>Documentation</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- 4. EXPERIENCE & EDUCATION (Interactive Tabs + Expandable Timeline)  -->
+    <!-- =================================================================== -->
+    <section id="trajectory" class="space-y-10 md-reveal scroll-mt-24">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+        <div>
+          <div class="font-mono text-xs uppercase tracking-widest text-gold-500 mb-2">
+            03 // Career &amp; Academic Milestones
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-white">
+            Professional Trajectory
+          </h2>
+        </div>
+
+        <!-- Interactive Tab Switcher (Work Experience vs Education History) -->
+        <div class="inline-flex p-1 rounded-xl bg-cursor-surface border border-cursor-borderLight self-start">
+          <button
+            type="button"
+            id="tabBtn-experience"
+            onclick="switchTrajectoryTab('experience')"
+            class="btn-gold px-4 py-2 rounded-lg text-xs font-medium flex items-center gap-2 bg-cursor-elevated text-gold-300 border border-gold-500/40"
+          >
+            <i data-lucide="briefcase" class="w-3.5 h-3.5"></i>
+            <span>Work Experience</span>
+          </button>
+          <button
+            type="button"
+            id="tabBtn-education"
+            onclick="switchTrajectoryTab('education')"
+            class="btn-gold px-4 py-2 rounded-lg text-xs font-medium flex items-center gap-2 text-neutral-400 border border-transparent"
+          >
+            <i data-lucide="graduation-cap" class="w-3.5 h-3.5"></i>
+            <span>Education &amp; Certifications</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ================================================================= -->
+      <!-- TAB PANEL 1: WORK EXPERIENCE TIMELINE                             -->
+      <!-- ================================================================= -->
+      <div id="tabPanel-experience" class="space-y-4 transition-all duration-300">
+
+        <!-- EXPERIENCE ITEM 1 (REPLACE WITH YOUR REAL ROLE #1) -->
+        <div class="cursor-card rounded-2xl p-6">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div class="flex items-start sm:items-center gap-4">
+              <!-- Dark Gray Company Logo -->
+              <div class="w-11 h-11 rounded-xl bg-cursor-elevated border border-cursor-borderLight flex items-center justify-center text-neutral-500 shrink-0">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zm0 7.5l-6-3 6-3 6 3-6 3zm0 2.5l-10-5v10l10 5 10-5V7l-10 5z"/>
+                </svg>
+              </div>
+              <div>
+                <!-- REPLACE: Job Title & Company Name -->
+                <h3 class="text-lg font-semibold text-white">Senior Backend Software Engineer</h3>
+                <p class="text-sm text-neutral-400">
+                  FinTech Core Systems · <span class="font-mono text-xs text-neutral-500">Full-Time · Remote</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3 self-start sm:self-center">
+              <!-- REPLACE: Dates -->
+              <span class="font-mono text-xs text-neutral-400 bg-cursor-elevated px-3 py-1 rounded-md border border-cursor-border">
+                2023 — Present
+              </span>
+              <button
+                type="button"
+                onclick="toggleAccordion('exp-1', this)"
+                class="btn-gold px-3 py-1.5 rounded-lg text-xs font-mono border border-cursor-borderLight bg-cursor-surface text-neutral-300 flex items-center gap-1.5"
+              >
+                <span>Details</span>
+                <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-300 rotate-180"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Expandable Details (Open by default on first item) -->
+          <div id="exp-1" class="accordion-content open">
+            <div class="accordion-inner pt-5 mt-5 border-t border-cursor-border space-y-3 text-sm text-neutral-300">
+              <!-- REPLACE: Bullet points of achievements -->
+              <ul class="space-y-2 list-disc list-inside text-neutral-400">
+                <li>Designed and migrated core settlement services from legacy monolithic WCF services to <span class="text-neutral-200">.NET 8 Microservices</span>, cutting infrastructure costs by 35%.</li>
+                <li>Optimized complex PostgreSQL analytical queries and indexing strategies, lowering average API response times from <span class="font-mono text-neutral-200">420ms to 38ms</span>.</li>
+                <li>Implemented automated CI/CD pipelines with GitHub Actions, Docker multi-stage builds, and integration test containers.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- EXPERIENCE ITEM 2 (REPLACE WITH YOUR REAL ROLE #2) -->
+        <div class="cursor-card rounded-2xl p-6">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div class="flex items-start sm:items-center gap-4">
+              <div class="w-11 h-11 rounded-xl bg-cursor-elevated border border-cursor-borderLight flex items-center justify-center text-neutral-500 shrink-0">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M4 4h7v7H4V4zm9 0h7v7h-7V4zM4 13h7v7H4v-7zm9 3.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
+                </svg>
+              </div>
+              <div>
+                <!-- REPLACE: Job Title & Company Name -->
+                <h3 class="text-lg font-semibold text-white">Backend Developer (.NET &amp; Cloud)</h3>
+                <p class="text-sm text-neutral-400">
+                  CloudScale Logistics · <span class="font-mono text-xs text-neutral-500">Full-Time · Hybrid</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3 self-start sm:self-center">
+              <!-- REPLACE: Dates -->
+              <span class="font-mono text-xs text-neutral-400 bg-cursor-elevated px-3 py-1 rounded-md border border-cursor-border">
+                2021 — 2023
+              </span>
+              <button
+                type="button"
+                onclick="toggleAccordion('exp-2', this)"
+                class="btn-gold px-3 py-1.5 rounded-lg text-xs font-mono border border-cursor-borderLight bg-cursor-surface text-neutral-300 flex items-center gap-1.5"
+              >
+                <span>Details</span>
+                <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-300"></i>
+              </button>
+            </div>
+          </div>
+
+          <div id="exp-2" class="accordion-content">
+            <div class="accordion-inner pt-5 mt-5 border-t border-cursor-border space-y-3 text-sm text-neutral-300">
+              <!-- REPLACE: Bullet points of achievements -->
+              <ul class="space-y-2 list-disc list-inside text-neutral-400">
+                <li>Built RESTful APIs and background worker services in <span class="text-neutral-200">C# / ASP.NET Core</span> serving real-time fleet tracking for 15,000+ active vehicles.</li>
+                <li>Introduced distributed caching with <span class="text-neutral-200">Redis</span> to offload repetitive geospatial lookups, reducing database CPU utilization by 50%.</li>
+                <li>Authored comprehensive unit and integration test suites using xUnit and Moq, raising code coverage to 88%.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- EXPERIENCE ITEM 3 (REPLACE WITH YOUR REAL ROLE #3) -->
+        <div class="cursor-card rounded-2xl p-6">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div class="flex items-start sm:items-center gap-4">
+              <div class="w-11 h-11 rounded-xl bg-cursor-elevated border border-cursor-borderLight flex items-center justify-center text-neutral-500 shrink-0">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                </svg>
+              </div>
+              <div>
+                <!-- REPLACE: Job Title & Company Name -->
+                <h3 class="text-lg font-semibold text-white">Software Engineer Intern / Junior Backend</h3>
+                <p class="text-sm text-neutral-400">
+                  DataPulse Solutions · <span class="font-mono text-xs text-neutral-500">On-Site</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3 self-start sm:self-center">
+              <!-- REPLACE: Dates -->
+              <span class="font-mono text-xs text-neutral-400 bg-cursor-elevated px-3 py-1 rounded-md border border-cursor-border">
+                2020 — 2021
+              </span>
+              <button
+                type="button"
+                onclick="toggleAccordion('exp-3', this)"
+                class="btn-gold px-3 py-1.5 rounded-lg text-xs font-mono border border-cursor-borderLight bg-cursor-surface text-neutral-300 flex items-center gap-1.5"
+              >
+                <span>Details</span>
+                <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-300"></i>
+              </button>
+            </div>
+          </div>
+
+          <div id="exp-3" class="accordion-content">
+            <div class="accordion-inner pt-5 mt-5 border-t border-cursor-border space-y-3 text-sm text-neutral-300">
+              <!-- REPLACE: Bullet points of achievements -->
+              <ul class="space-y-2 list-disc list-inside text-neutral-400">
+                <li>Developed internal data synchronization microservices connecting ERP databases with customer portals via SQL Server and EF Core.</li>
+                <li>Automated nightly database backup verification and schema migration scripts.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ================================================================= -->
+      <!-- TAB PANEL 2: EDUCATION HISTORY & CERTIFICATIONS                   -->
+      <!-- ================================================================= -->
+      <div id="tabPanel-education" class="hidden space-y-4 transition-all duration-300">
+
+        <!-- EDUCATION ITEM 1 (REPLACE WITH YOUR UNIVERSITY / DEGREE) -->
+        <div class="cursor-card rounded-2xl p-6">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div class="flex items-start sm:items-center gap-4">
+              <div class="w-11 h-11 rounded-xl bg-cursor-elevated border border-cursor-borderLight flex items-center justify-center text-gold-400 shrink-0">
+                <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <!-- REPLACE: Your Degree & University -->
+                <h3 class="text-lg font-semibold text-white">B.S. in Computer Science / Software Engineering</h3>
+                <p class="text-sm text-neutral-400">
+                  University of Technology · <span class="font-mono text-xs text-neutral-500">Specialization in Distributed Systems</span>
+                </p>
+              </div>
+            </div>
+            <!-- REPLACE: Graduation Years -->
+            <span class="font-mono text-xs text-neutral-400 bg-cursor-elevated px-3 py-1 rounded-md border border-cursor-border self-start sm:self-center">
+              2017 — 2021
+            </span>
+          </div>
+          <p class="mt-4 pt-4 border-t border-cursor-border text-sm text-neutral-400">
+            Relevant Coursework: Data Structures &amp; Algorithms, Database Internals, Operating Systems, Computer Networks, Distributed Computing, and Software Architecture.
+          </p>
+        </div>
+
+        <!-- EDUCATION ITEM 2 (REPLACE WITH YOUR CERTIFICATIONS) -->
+        <div class="cursor-card rounded-2xl p-6">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div class="flex items-start sm:items-center gap-4">
+              <div class="w-11 h-11 rounded-xl bg-cursor-elevated border border-cursor-borderLight flex items-center justify-center text-gold-400 shrink-0">
+                <i data-lucide="award" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <!-- REPLACE: Certification Title -->
+                <h3 class="text-lg font-semibold text-white">Cloud &amp; Backend Architecture Certifications</h3>
+                <p class="text-sm text-neutral-400">
+                  Microsoft Azure / Cloud Native Computing Foundation
+                </p>
+              </div>
+            </div>
+            <span class="font-mono text-xs text-neutral-400 bg-cursor-elevated px-3 py-1 rounded-md border border-cursor-border self-start sm:self-center">
+              2022 — 2025
+            </span>
+          </div>
+          <div class="mt-4 pt-4 border-t border-cursor-border flex flex-wrap gap-2">
+            <!-- REPLACE: Certification Badges -->
+            <span class="px-3 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-300">
+              Microsoft Certified: Azure Developer Associate (AZ-204)
+            </span>
+            <span class="px-3 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-300">
+              Docker &amp; Kubernetes Microservices Architecture
+            </span>
+            <span class="px-3 py-1 rounded-md text-xs font-mono bg-cursor-elevated border border-cursor-borderLight text-neutral-300">
+              PostgreSQL High-Performance Tuning
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- 5. CONTACT / FOOTER SECTION                                         -->
+    <!-- =================================================================== -->
+    <section id="contact" class="pt-8 md-reveal">
+      <div class="cursor-card rounded-3xl p-8 sm:p-12 border border-cursor-borderLight relative overflow-hidden">
+        <div class="max-w-2xl space-y-6">
+          <div class="font-mono text-xs uppercase tracking-widest text-gold-500">
+            04 // Initiate Connection
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white">
+            Ready to scale your backend architecture?
+          </h2>
+          <p class="text-neutral-400 text-sm sm:text-base leading-relaxed">
+            Whether you need a Senior Backend Engineer for high-concurrency microservices, database performance optimization, or greenfield system design, feel free to reach out directly.
+          </p>
+
+          <!-- Direct Contact Buttons (Turn Gold on Hover) -->
+          <div class="flex flex-wrap items-center gap-3.5 pt-2">
+            <!-- REPLACE: Your real Email Address -->
+            <a href="mailto:emmanuel.corpus@example.com" class="btn-gold-primary inline-flex items-center gap-2.5 px-6 py-3 rounded-xl text-sm font-medium">
+              <i data-lucide="mail" class="w-4 h-4"></i>
+              <span>emmanuel.corpus@example.com</span>
+            </a>
+
+            <!-- REPLACE: Your real LinkedIn URL -->
+            <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" class="btn-gold inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-medium bg-cursor-surface border border-cursor-borderLight text-neutral-200">
+              <i data-lucide="linkedin" class="w-4 h-4"></i>
+              <span>LinkedIn</span>
+            </a>
+
+            <!-- REPLACE: Your real GitHub URL -->
+            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" class="btn-gold inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-medium bg-cursor-surface border border-cursor-borderLight text-neutral-200">
+              <i data-lucide="github" class="w-4 h-4"></i>
+              <span>GitHub</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================================================================== -->
+  <!-- FOOTER                                                                -->
+  <!-- ===================================================================== -->
+  <footer class="relative z-10 border-t border-cursor-border bg-black/80 backdrop-blur-md">
+    <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-500 font-mono">
+      <div>
+        &copy; <span id="currentYear"></span> Emmanuel Corpus. All rights reserved.
+      </div>
+      <div class="flex items-center gap-6">
+        <span>Built with Precision · Pure Black Theme</span>
+        <a href="#hero" class="btn-gold px-2.5 py-1 rounded border border-cursor-border text-neutral-400">
+          Top &uarr;
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================================================================== -->
+  <!-- SCRIPTS: 3D Point-Cloud Cube, Material Design Ripples, Tabs & Reveal  -->
+  <!-- ===================================================================== -->
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Set copyright year dynamically
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+
+    // =====================================================================
+    // Tab Switching & Smooth Navigation to Experience / Education
+    // =====================================================================
+    function switchTrajectoryTab(tabName) {
+      const expPanel = document.getElementById('tabPanel-experience');
+      const eduPanel = document.getElementById('tabPanel-education');
+      const expBtn = document.getElementById('tabBtn-experience');
+      const eduBtn = document.getElementById('tabBtn-education');
+
+      if (tabName === 'experience') {
+        expPanel.classList.remove('hidden');
+        eduPanel.classList.add('hidden');
+
+        expBtn.className = 'btn-gold px-4 py-2 rounded-lg text-xs font-medium flex items-center gap-2 bg-cursor-elevated text-gold-300 border border-gold-500/40';
+        eduBtn.className = 'btn-gold px-4 py-2 rounded-lg text-xs font-medium flex items-center gap-2 text-neutral-400 border border-transparent';
+      } else {
+        eduPanel.classList.remove('hidden');
+        expPanel.classList.add('hidden');
+
+        eduBtn.className = 'btn-gold px-4 py-2 rounded-lg text-xs font-medium flex items-center gap-2 bg-cursor-elevated text-gold-300 border border-gold-500/40';
+        expBtn.className = 'btn-gold px-4 py-2 rounded-lg text-xs font-medium flex items-center gap-2 text-neutral-400 border border-transparent';
+      }
+    }
+
+    function navigateToTrajectory(tabName) {
+      switchTrajectoryTab(tabName);
+      const section = document.getElementById('trajectory');
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    // Accordion Toggle for Work Experience items
+    function toggleAccordion(id, btn) {
+      const content = document.getElementById(id);
+      const icon = btn.querySelector('svg');
+      content.classList.toggle('open');
+      if (icon) {
+        icon.classList.toggle('rotate-180');
+      }
+    }
+
+    // =====================================================================
+    // Google Material Design Ripple Effect on Buttons
+    // =====================================================================
+    document.querySelectorAll('.btn-gold, .btn-gold-primary').forEach(button => {
+      button.addEventListener('pointerdown', function (e) {
+        const rect = button.getBoundingClientRect();
+        const ripple = document.createElement('span');
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+
+        ripple.style.width = ripple.style.height = `${size}px`;
+        ripple.style.left = `${x}px`;
+        ripple.style.top = `${y}px`;
+        ripple.classList.add('md-ripple-wave');
+
+        button.appendChild(ripple);
+        setTimeout(() => ripple.remove(), 650);
+      });
+    });
+
+    // =====================================================================
+    // Google Material Design 3 Scroll Reveal Observer
+    // =====================================================================
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.md-reveal').forEach(el => revealObserver.observe(el));
+
+    // =====================================================================
+    // 3D ROTATING POINT-CLOUD CUBE BACKGROUND (Centered, Large, Fluid)
+    // =====================================================================
+    (function initPointCube() {
+      const canvas = document.getElementById('pointCubeCanvas');
+      const ctx = canvas.getContext('2d');
+
+      let width = 0;
+      let height = 0;
+      let dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+      // Generate structured 3D volumetric point-cloud cube (points along faces, edges, and lattice interior)
+      const points = [];
+      const gridPerAxis = 9; // 9x9x9 volumetric lattice = 729 points
+      for (let ix = 0; ix < gridPerAxis; ix++) {
+        for (let iy = 0; iy < gridPerAxis; iy++) {
+          for (let iz = 0; iz < gridPerAxis; iz++) {
+            const x = (ix / (gridPerAxis - 1)) * 2 - 1;
+            const y = (iy / (gridPerAxis - 1)) * 2 - 1;
+            const z = (iz / (gridPerAxis - 1)) * 2 - 1;
+
+            // Keep outer shell + main structural lattice planes so the cube reads clearly and deeply
+            const isSurface =
+              Math.abs(x) === 1 ||
+              Math.abs(y) === 1 ||
+              Math.abs(z) === 1;
+            const isCoreLattice =
+              (ix % 2 === 0 && iy % 2 === 0 && iz % 2 === 0);
+
+            if (isSurface || isCoreLattice) {
+              const isCornerOrEdge =
+                (Math.abs(x) === 1 && Math.abs(y) === 1) ||
+                (Math.abs(y) === 1 && Math.abs(z) === 1) ||
+                (Math.abs(x) === 1 && Math.abs(z) === 1);
+
+              points.push({
+                x,
+                y,
+                z,
+                isEdge: isCornerOrEdge,
+                isGoldAccent: isCornerOrEdge && ((ix + iy + iz) % 3 === 0)
+              });
+            }
+          }
+        }
+      }
+
+      function resizeCanvas() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width = width * dpr;
+        canvas.height = height * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+
+      window.addEventListener('resize', resizeCanvas);
+      resizeCanvas();
+
+      // Rotation angles & subtle interactive mouse parallax
+      let angleX = 0.45;
+      let angleY = 0.65;
+      let angleZ = 0.15;
+      let targetMouseX = 0;
+      let targetMouseY = 0;
+      let smoothMouseX = 0;
+      let smoothMouseY = 0;
+
+      window.addEventListener('mousemove', (e) => {
+        targetMouseX = (e.clientX / width - 0.5) * 0.25;
+        targetMouseY = (e.clientY / height - 0.5) * 0.25;
+      });
+
+      function render() {
+        ctx.clearRect(0, 0, width, height);
+
+        // Slow, continuous, fluid rotation
+        angleY += 0.0022;
+        angleX += 0.0013;
+        angleZ += 0.0007;
+
+        smoothMouseX += (targetMouseX - smoothMouseX) * 0.04;
+        smoothMouseY += (targetMouseY - smoothMouseY) * 0.04;
+
+        const rx = angleX + smoothMouseY;
+        const ry = angleY + smoothMouseX;
+        const rz = angleZ;
+
+        const cosX = Math.cos(rx), sinX = Math.sin(rx);
+        const cosY = Math.cos(ry), sinY = Math.sin(ry);
+        const cosZ = Math.cos(rz), sinZ = Math.sin(rz);
+
+        // Large cube scale centered in the viewport
+        const cubeRadius = Math.min(width, height) * 0.34;
+        const fov = 4.2;
+        const cx = width * 0.5;
+        const cy = height * 0.5;
+
+        for (let i = 0; i < points.length; i++) {
+          const p = points[i];
+
+          // Rotate around X
+          let y1 = p.y * cosX - p.z * sinX;
+          let z1 = p.y * sinX + p.z * cosX;
+          let x1 = p.x;
+
+          // Rotate around Y
+          let x2 = x1 * cosY + z1 * sinY;
+          let z2 = -x1 * sinY + z1 * cosY;
+          let y2 = y1;
+
+          // Rotate around Z
+          let x3 = x2 * cosZ - y2 * sinZ;
+          let y3 = x2 * sinZ + y2 * cosZ;
+          let z3 = z2;
+
+          // Perspective projection
+          const perspective = fov / (fov + z3 + 2.2);
+          const screenX = cx + x3 * cubeRadius * perspective * 1.65;
+          const screenY = cy + y3 * cubeRadius * perspective * 1.65;
+
+          // Depth-based alpha and size
+          const depthNormalized = (1 - (z3 + 1.7) / 3.4); // 0 (far) to 1 (near)
+          const alpha = Math.max(0.08, Math.min(0.85, depthNormalized * 0.72));
+          const radius = Math.max(0.9, (p.isEdge ? 2.2 : 1.55) * perspective * 1.45);
+
+          ctx.beginPath();
+          ctx.arc(screenX, screenY, radius, 0, Math.PI * 2);
+
+          if (p.isGoldAccent) {
+            ctx.fillStyle = `rgba(212, 175, 55, ${alpha * 0.95})`;
+          } else if (p.isEdge) {
+            ctx.fillStyle = `rgba(235, 235, 235, ${alpha * 0.75})`;
+          } else {
+            ctx.fillStyle = `rgba(155, 155, 155, ${alpha * 0.48})`;
+          }
+
+          ctx.fill();
+        }
+
+        requestAnimationFrame(render);
+      }
+
+      requestAnimationFrame(render);
+    })();
+  </script>
+</body>
+</html>
